@@ -51,6 +51,7 @@ public class ShopDemo extends CommonOps {
         Verifications.verifyTextContainedInElement(HighestPriceProduct, "250.00 "); // Verify that the highest price product contains the expected price
     }
 
+    // Test to verify a product added to the cart
     @Test
     public void test05_verifyDetailsOfProductAddedToCart() throws Exception {
         // Click on the store button in the top menu
