@@ -15,7 +15,7 @@ public class Webflows extends CommonOps {
         UIActions.selectDropDownByValue(storePage.combo_OrderByFilter,"price-desc");
     }
 
-    @Step("business flow - sort products by price Highest to Lowest")
+    @Step("business flow - sort products by price Lowest to Highest")
     public static void SortProductsByPriceHLowToHigh() {
         UIActions.selectDropDownByValue(storePage.combo_OrderByFilter,"price");
     }
