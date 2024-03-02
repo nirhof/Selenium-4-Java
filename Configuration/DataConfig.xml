@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Environment>
+    <!-- Timeout -->
+    <Timeout>10</Timeout>
+
+    <!-- General -->
+<!--    <PlatformName>web</PlatformName>-->
+
+    <!-- Web -->
+    <BrowserName>chrome</BrowserName>
+    <url>https://atid.store/</url>
+
+    <!-- Mobile -->
+    <UDID>R58W703T0NY</UDID>
+    <AppPackage>com.experitest.ExperiBank</AppPackage>
+    <AppActivity>.LoginActivity</AppActivity>
+    <AppiumServer>http://localhost:4723/wd/hub</AppiumServer>
+
+    <!-- API -->
+
+    <!--    dummyAPI_url:-->
+    <!--    <url_base_API>https://dummy.restapiexample.com</url_base_API>-->
+
+    <!--    StudentLists_url:-->
+    <url_base_API>http://localhost:9000</url_base_API>
+
+    <!-- Electron -->
+    <ElectronDriverPath>./Drivers/electrondriver.exe</ElectronDriverPath>-->
+    <ElectronAppPath>C:/Users/Yosi/AppData/Local/Programs/todolist/Todolist.exe</ElectronAppPath>
+
+    <!-- Desktop -->
+    <CalculatorApp>Microsoft.WindowsCalculator_8wekyb3d8bbwe!App</CalculatorApp>
+    <AppiumServerDesktop>http://127.0.0.1:4723</AppiumServerDesktop>
+
+    <!-- Image ImageRepository directory path -->
+    <ImageRepo>C:\\Automation\\Projects\\Selenium4Java\\Images\\</ImageRepo>
+
+    <!-- Data Driven Testing -->
+    <DDTFile>./DDTFiles/users.csv</DDTFile>
+
+    <!-- Database - Connection details-->
+    <DBURL>jdbc:mysql://sql11.freemysqlhosting.net:3306/sql11648865</DBURL>
+    <DBUserName>sql11648865</DBUserName>
+    <DBPassword>eCiFYnzs7e</DBPassword>
+
+    <!-- Login SauceDemo - Web -->
+    <userName>standard_user</userName>
+    <password>secret_sauce</password>
+
+    <!-- Login Eribank - Mobile -->
+    <EribankUserName>company</EribankUserName>
+    <EribankPassword>company</EribankPassword>
+
+    <!-- Plugin Path -->
+    <PluginPath>C:/Users/Yosi/Desktop/CV/selenium_ide-3.17.4.xpi</PluginPath>
+
+</Environment>
