@@ -39,7 +39,7 @@ public class ShopDemo extends CommonOps {
         UIActions.click(topMenu.btn_Store); // Click on the store button in the top menu
         WebElement anchorBraceletImage = storePage.productsImages.get(5); // Get the anchor bracelet image element
         screenShot.createElementScreenShot(anchorBraceletImage, "anchorBraceletImage"); // Take a screenshot of the anchor bracelet image
-        Verifications.visualElement("anchorBraceletImage"); // Verify the image the anchor bracelet image compared to expected image
+        Verifications.visualElement("anchorBraceletImage"); // Verify the image of the product image compared to expected image
     }
 
     // Test to verify the highest product price
