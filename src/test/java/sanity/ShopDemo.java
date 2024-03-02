@@ -22,7 +22,7 @@ public class ShopDemo extends CommonOps {
     public void test01_verifyNumberOfShoesProducts() {
         UIActions.click(topMenu.btn_Store); // Click on the store button in the top menu
         Webflows.searchForProduct("shoes"); // Search for shoes in the store
-        Verifications.numberOfElements(storePage.products, 5); // Verify the number of shoe products displayed
+        Verifications.numberOfElements(storePage.products, 5); // Verify the number of shoe products is equal to expected
     }
 
     // Test to verify the presence of the "About Atid Store - Who We Are" text
@@ -30,7 +30,7 @@ public class ShopDemo extends CommonOps {
     public void test02_verifyAboutAtidText() {
         UIActions.click(topMenu.btn_About); // Click on the About button in the top menu
         String whoWeAreText = "ATID Demo Store was created by ATID College dedicated employees. This is a complete demo site for practicing QA & Test Automation methodologies. Don't think for a second you can actually buy here something cause you can't ! This Demo Store contains software bugs which were put intentionally and your job is to locate them Good luck folks, Yoni Flenner - ATID College";
-        Verifications.verifyTextInElement(aboutPage.description.get(0), whoWeAreText); // Verify the presence of the expected text in the About page description
+        Verifications.verifyTextInElement(aboutPage.description.get(0), whoWeAreText); // Verify the text in the About page description
     }
 
     // Test to verify the anchor bracelet image
