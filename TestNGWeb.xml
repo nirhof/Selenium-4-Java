@@ -6,7 +6,7 @@
         <classes>
             <class name="sanity.ShopDemo">
                 <methods>
-                    <include name="test06_verifyDeletionOfProductsFromCart()"></include>
+                    <include name="test05_verifyDetailsOfProductAddedToCart()"></include>
                 </methods>
             </class>
 <!--            <class name="sanity.ShopDemo" />-->

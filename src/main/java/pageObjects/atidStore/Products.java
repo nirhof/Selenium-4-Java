@@ -15,4 +15,10 @@ public class Products {
 
     @FindBy(id = "ast-site-header-cart")
     public WebElement btn_CartMenu;
+
+    @FindBy(css = "h1[class='product_title entry-title']")
+    public WebElement txt_productName;
+
+    @FindBy(css = "p[class='price']")
+    public WebElement txt_productPrice;
 }

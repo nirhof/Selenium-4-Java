@@ -61,36 +61,40 @@ public class ShopDemo extends CommonOps {
         Webflows.SortProductsByPriceHLowToHigh();
 
         // Click on the product
-        UIActions.click(storePage.productsImages.get(5));
+        UIActions.click(storePage.productsImages.get(6));
+
+        String expectedProductName = products.txt_productName.getText();
+        String expectedProductPrice = Webflows.getProductPrice(products.txt_productPrice);
 
         // Get the element for setting quantity using relative locator
         WebElement productQuantity_txt = relativeLocator.getElement("input", "near", "name", "add-to-cart");
         String quantityValue = "3";
         // Update product quantity and add to cart
-        UIActions.updateText(productQuantity_txt, quantityValue);
-        UIActions.click(products.btn_AddToCart);
+        Webflows.addProductWithQuantity(productQuantity_txt, quantityValue);
 
         // Hover over the cart menu and verify the product details in cart page
         UIActions.mouseHover(products.btn_CartMenu);
 
         // Define the list of elements representing the row
-        List<WebElement> rowElements = Arrays.asList(
+        List<WebElement> actualProdcutDetails = Arrays.asList(
                 cartPage.txt_ProductName.get(0),
                 cartPage.txt_ProductPrice.get(0),
                 cartPage.txt_ProductQuantity.get(0),
                 cartPage.txt_ProductSubtotal.get(0)
         );
 
+        String expectedProductSubtotalPriceString = Webflows.getSubTotalPrice(expectedProductPrice, quantityValue);
+
         // Define the list of expected values for each element
         List<String> expectedValues = Arrays.asList(
-                "Buddha Bracelet", // Product name
-                "30.00 ₪",         // Product price
-                "3",         // Product quantity
-                "90.00 ₪"          // Product subtotal price
+                expectedProductName, // expected product name
+                expectedProductPrice,         // expected product price
+                quantityValue,         // expected Product quantity
+                expectedProductSubtotalPriceString          // expected product subtotal price
         );
 
-        // Verify details of the product added
-        Verifications.verifyRowDetails(rowElements, expectedValues);
+        // Verify details of the product added equals to the expected values
+        Verifications.verifyRowDetails(actualProdcutDetails, expectedValues);
     }
 
     // Test to verify deletion of products from the cart
@@ -122,7 +126,7 @@ public class ShopDemo extends CommonOps {
         Webflows.RemoveAllItem(cartPage.btn_RemoveProduct);
 
         // Verify that the cart is empty
-        Verifications.verifyTextInElement(cartPage.txt_cartEmpty,"Your cart is currently empty.");
+        Verifications.verifyTextInElement(cartPage.txt_cartEmpty, "Your cart is currently empty.");
     }
 
     // Method to execute after each test method
