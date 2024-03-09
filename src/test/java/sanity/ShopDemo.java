@@ -114,10 +114,8 @@ public class ShopDemo extends CommonOps {
 
         // Define the quantity of the product to be added to the cart
         String quantityValue = "3";
-
-        // Update product quantity and add it to the cart
-        UIActions.updateText(productQuantity_txt, quantityValue);
-        UIActions.click(products.btn_AddToCart);
+        // Update product quantity and add to cart
+        Webflows.addProductWithQuantity(productQuantity_txt, quantityValue);
 
         // Hover over the cart menu and verify the product details in the cart page
         UIActions.mouseHover(products.btn_CartMenu);
