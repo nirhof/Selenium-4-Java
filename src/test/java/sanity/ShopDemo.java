@@ -127,6 +127,16 @@ public class ShopDemo extends CommonOps {
         Verifications.verifyTextInElement(cartPage.txt_cartEmpty, "Your cart is currently empty.");
     }
 
+    // Test to verify that the search products element is located correctly
+    @Test
+    public void test07_verifySearchProductsElementLocation() {
+        // Click the Store button in the top menu
+        UIActions.click(topMenu.btn_Store);
+
+        // Verify the orientation of the Search textbox
+        Verifications.verifyElementOrientaion(storePage.txt_Search, 198, 43, 31, 168);
+    }
+
     // Method to execute after each test method
     @AfterMethod
     public void afterMethod() {
