@@ -32,10 +32,7 @@ public class Webflows extends CommonOps {
     @Step("business flow - Remove all Items from cart")
     public static void RemoveAllItem(List<WebElement> products) {
         for (int i = 0; i < products.size(); i++) {
-            WebElement product = products.get(i);
             UIActions.click(cartPage.btn_RemoveProduct.get(i));
-            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
-
         }
     }
 
