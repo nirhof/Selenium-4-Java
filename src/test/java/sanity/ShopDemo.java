@@ -93,6 +93,37 @@ public class ShopDemo extends CommonOps {
         Verifications.verifyRowDetails(rowElements, expectedValues);
     }
 
+    // Test to verify deletion of products from the cart
+    @Test
+    public void test06_verifyDeletionOfProductsFromCart() throws Exception {
+        // Click on the store button in the top menu
+        UIActions.click(topMenu.btn_Store);
+
+        // Sort the products by price from highest to lowest
+        Webflows.SortProductsByPriceHLowToHigh();
+
+        // Click on the product
+        UIActions.click(storePage.productsImages.get(5));
+
+        // Get the element for setting quantity using relative locator
+        WebElement productQuantity_txt = relativeLocator.getElement("input", "near", "name", "add-to-cart");
+
+        // Define the quantity of the product to be added to the cart
+        String quantityValue = "3";
+
+        // Update product quantity and add it to the cart
+        UIActions.updateText(productQuantity_txt, quantityValue);
+        UIActions.click(products.btn_AddToCart);
+
+        // Hover over the cart menu and verify the product details in the cart page
+        UIActions.mouseHover(products.btn_CartMenu);
+
+        // Remove all items from the cart
+        Webflows.RemoveAllItem(cartPage.btn_RemoveProduct);
+
+        // Verify that the cart is empty
+        Verifications.verifyTextInElement(cartPage.txt_cartEmpty,"Your cart is currently empty.");
+    }
 
     // Method to execute after each test method
     @AfterMethod

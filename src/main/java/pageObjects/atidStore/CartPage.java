@@ -19,5 +19,13 @@ public class CartPage {
     @FindBy(css = "td[class='product-name']")
     public  List<WebElement> txt_ProductName;
 
+    @FindBy(css = "tr[class='woocommerce-cart-form__cart-item cart_item']")
+    public  List<WebElement> ProductRow;
 
+    @FindBy(css = "a[class=remove]")
+    public  List<WebElement> btn_RemoveProduct;
+
+    @FindBy(css = "div[class='cart-empty woocommerce-info']")
+    public  WebElement txt_cartEmpty;
 }
+

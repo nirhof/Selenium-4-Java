@@ -5,6 +5,7 @@ import io.qameta.allure.Step;
 import org.openqa.selenium.WebElement;
 import utilities.CommonOps;
 
+import java.util.List;
 
 
 public class Webflows extends CommonOps {
@@ -12,12 +13,12 @@ public class Webflows extends CommonOps {
 
     @Step("business flow - sort products by price Highest to Lowest")
     public static void SortProductsByPriceHighToLow() {
-        UIActions.selectDropDownByValue(storePage.combo_OrderByFilter,"price-desc");
+        UIActions.selectDropDownByValue(storePage.combo_OrderByFilter, "price-desc");
     }
 
     @Step("business flow - sort products by price Lowest to Highest")
     public static void SortProductsByPriceHLowToHigh() {
-        UIActions.selectDropDownByValue(storePage.combo_OrderByFilter,"price");
+        UIActions.selectDropDownByValue(storePage.combo_OrderByFilter, "price");
     }
 
     @Step("business flow - search for product")
@@ -26,6 +27,12 @@ public class Webflows extends CommonOps {
         UIActions.click(storePage.btn_Submit);
     }
 
+    @Step("business flow - Remove all Items from cart")
+    public static void RemoveAllItem(List<WebElement> elements) {
+        for (int i = 0; i < elements.size(); i++) {
+            UIActions.click(elements.get(i));
+        }
+    }
 }
 
 

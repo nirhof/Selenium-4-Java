@@ -4,12 +4,12 @@
     <test name="Web Tests">
         <parameter name="PlatformName" value="web"></parameter>
         <classes>
-<!--            <class name="sanity.ShopDemo">-->
-<!--                <methods>-->
-<!--                    <include name="test018_locateElement()"></include>-->
-<!--                </methods>-->
-<!--            </class>-->
-            <class name="sanity.ShopDemo" />
+            <class name="sanity.ShopDemo">
+                <methods>
+                    <include name="test06_verifyDeletionOfProductsFromCart()"></include>
+                </methods>
+            </class>
+<!--            <class name="sanity.ShopDemo" />-->
         </classes>
     </test>
 </suite>
