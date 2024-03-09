@@ -22,8 +22,9 @@ public class ShopDemoRemoveAllProductsTest extends CommonOps {
         Webflows.addProductAndReturnToStore(9);
         Webflows.addProductAndReturnToStore(10, "3");
         Webflows.addProductAndReturnToStore(11, "2");
-        // Hover over the cart menu and verify the product details in the cart page
+
         driver.navigate().refresh();
+        // Hover over the cart menu
         UIActions.mouseHover(products.btn_CartMenu);
         driver.navigate().refresh();
         // Remove all items from the cart
