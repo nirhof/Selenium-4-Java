@@ -21,4 +21,8 @@ public class Products {
 
     @FindBy(css = "p[class='price']")
     public WebElement txt_productPrice;
+
+    @FindBy(css = "input[type='number']")
+    public WebElement txt_productQuantity;
+
 }

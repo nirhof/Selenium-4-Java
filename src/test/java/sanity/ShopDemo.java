@@ -137,6 +137,23 @@ public class ShopDemo extends CommonOps {
         Verifications.verifyElementOrientaion(storePage.txt_Search, 198, 43, 31, 168);
     }
 
+
+    // Test to verify adding a number of products equals the expected count
+    @Test
+    public void test08_verifyAddingMultipleProducts() {
+        // Click on the store button in the top menu
+        UIActions.click(topMenu.btn_Store);
+
+        // Sort the products by price from highest to lowest
+        Webflows.SortProductsByPriceHLowToHigh();
+        Webflows.addProductAndReturnToStore(5);
+        Webflows.addProductAndReturnToStore(6, "2");
+        Webflows.addProductAndReturnToStore(7, "3");
+
+        UIActions.mouseHover(products.btn_CartMenu);
+        Verifications.numberOfElements(cartPage.ProductRow, 3); // verify number of products added equals to expected
+    }
+
     // Method to execute after each test method
     @AfterMethod
     public void afterMethod() {

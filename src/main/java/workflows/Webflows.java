@@ -69,10 +69,27 @@ public class Webflows extends CommonOps {
         return productSubtotalPrice+ "0 ₪";
     }
 
-    @Step("business flow - get product subtotal price")
+    @Step("business flow - choose quantity and add product tp the cart")
     public static void addProductWithQuantity(WebElement element,String quantityValue) {
         UIActions.updateText(element, quantityValue);
         UIActions.click(products.btn_AddToCart);
+    }
+
+    @Step("business flow - add product tp the cart")
+    public static void addProductAndReturnToStore(int productIndex, String quantityValue)  {
+        UIActions.click(storePage.productsImages.get(productIndex));
+        UIActions.updateText(products.txt_productQuantity, quantityValue);
+        UIActions.click(products.btn_AddToCart);
+        driver.navigate().back();
+        driver.navigate().back();
+    }
+
+    @Step("business flow - add product tp the cart")
+    public static void addProductAndReturnToStore(int productIndex)  {
+        UIActions.click(storePage.productsImages.get(productIndex));
+        UIActions.click(products.btn_AddToCart);
+        driver.navigate().back();
+        driver.navigate().back();
     }
 }
 

@@ -6,7 +6,7 @@
         <classes>
             <class name="sanity.ShopDemo">
                 <methods>
-                    <include name="test07_verifySearchProductsElementLocation()"></include>
+                    <include name="test08_verifyAddingMultipleProducts()"></include>
                 </methods>
             </class>
 <!--            <class name="sanity.ShopDemo" />-->
