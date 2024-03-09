@@ -3,6 +3,7 @@ package sanity;
 import extensions.UIActions;
 import extensions.Verifications;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.locators.RelativeLocator;
 import org.testng.annotations.AfterMethod;
@@ -97,35 +98,6 @@ public class ShopDemo extends CommonOps {
         Verifications.verifyRowDetails(actualProdcutDetails, expectedValues);
     }
 
-    // Test to verify deletion of products from the cart
-    @Test
-    public void test06_verifyDeletionOfProductsFromCart() throws Exception {
-        // Click on the store button in the top menu
-        UIActions.click(topMenu.btn_Store);
-
-        // Sort the products by price from highest to lowest
-        Webflows.SortProductsByPriceHLowToHigh();
-
-        // Click on the product
-        UIActions.click(storePage.productsImages.get(5));
-
-        // Get the element for setting quantity using relative locator
-        WebElement productQuantity_txt = relativeLocator.getElement("input", "near", "name", "add-to-cart");
-
-        // Define the quantity of the product to be added to the cart
-        String quantityValue = "3";
-        // Update product quantity and add to cart
-        Webflows.addProductWithQuantity(productQuantity_txt, quantityValue);
-
-        // Hover over the cart menu and verify the product details in the cart page
-        UIActions.mouseHover(products.btn_CartMenu);
-
-        // Remove all items from the cart
-        Webflows.RemoveAllItem(cartPage.btn_RemoveProduct);
-
-        // Verify that the cart is empty
-        Verifications.verifyTextInElement(cartPage.txt_cartEmpty, "Your cart is currently empty.");
-    }
 
     // Test to verify that the search products element is located correctly
     @Test
@@ -139,24 +111,13 @@ public class ShopDemo extends CommonOps {
 
 
     // Test to verify adding a number of products equals the expected count
-    @Test
-    public void test08_verifyAddingMultipleProducts() {
-        // Click on the store button in the top menu
-        UIActions.click(topMenu.btn_Store);
 
-        // Sort the products by price from highest to lowest
-        Webflows.SortProductsByPriceHLowToHigh();
-        Webflows.addProductAndReturnToStore(5);
-        Webflows.addProductAndReturnToStore(6, "2");
-        Webflows.addProductAndReturnToStore(7, "3");
-
-        UIActions.mouseHover(products.btn_CartMenu);
-        Verifications.numberOfElements(cartPage.ProductRow, 3); // verify number of products added equals to expected
-    }
 
     // Method to execute after each test method
     @AfterMethod
     public void afterMethod() {
         driver.get(getData("url")); // Navigate back to the URL after each test method execution
+
     }
+
 }

@@ -3,8 +3,10 @@ package workflows;
 import extensions.UIActions;
 import io.qameta.allure.Step;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import utilities.CommonOps;
 
+import java.time.Duration;
 import java.util.List;
 
 
@@ -28,11 +30,21 @@ public class Webflows extends CommonOps {
     }
 
     @Step("business flow - Remove all Items from cart")
-    public static void RemoveAllItem(List<WebElement> elements) {
-        for (int i = 0; i < elements.size(); i++) {
-            UIActions.click(elements.get(i));
+    public static void RemoveAllItem(List<WebElement> products) {
+        for (int i = 0; i < products.size(); i++) {
+            WebElement product = products.get(i);
+            UIActions.click(cartPage.btn_RemoveProduct.get(i));
+            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
+
         }
     }
+
+    @Step("business flow - Remove all Items from cart")
+    public static void RemoveItem(int itemIndex) {
+        UIActions.click(cartPage.btn_RemoveProduct.get(itemIndex));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
+    }
+
 
     @Step("business flow - get product price")
     public static String getProductPrice(WebElement productPrice) {
@@ -66,30 +78,38 @@ public class Webflows extends CommonOps {
         double productSubtotalPrice = price * quantity; // Calculate subtotal price as a double
 
         // Format the productSubtotalPrice to have two decimal places and append " ₪"
-        return productSubtotalPrice+ "0 ₪";
+        return productSubtotalPrice + "0 ₪";
     }
 
     @Step("business flow - choose quantity and add product tp the cart")
-    public static void addProductWithQuantity(WebElement element,String quantityValue) {
+    public static void addProductWithQuantity(WebElement element, String quantityValue) {
         UIActions.updateText(element, quantityValue);
         UIActions.click(products.btn_AddToCart);
     }
 
-    @Step("business flow - add product tp the cart")
-    public static void addProductAndReturnToStore(int productIndex, String quantityValue)  {
+    @Step("business flow - add product to the cart (choose product quantity)")
+    public static void addProductAndReturnToStore(int productIndex, String quantityValue) {
         UIActions.click(storePage.productsImages.get(productIndex));
         UIActions.updateText(products.txt_productQuantity, quantityValue);
         UIActions.click(products.btn_AddToCart);
         driver.navigate().back();
+//        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         driver.navigate().back();
+//        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        driver.navigate().refresh();
+//        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
     }
 
-    @Step("business flow - add product tp the cart")
-    public static void addProductAndReturnToStore(int productIndex)  {
+    @Step("business flow - add product to the cart - default quantity")
+    public static void addProductAndReturnToStore(int productIndex) {
         UIActions.click(storePage.productsImages.get(productIndex));
         UIActions.click(products.btn_AddToCart);
         driver.navigate().back();
+//        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         driver.navigate().back();
+//        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        driver.navigate().refresh();
+//        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
     }
 }
 

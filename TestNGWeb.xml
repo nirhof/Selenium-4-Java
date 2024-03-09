@@ -4,12 +4,14 @@
     <test name="Web Tests">
         <parameter name="PlatformName" value="web"></parameter>
         <classes>
-            <class name="sanity.ShopDemo">
-                <methods>
-                    <include name="test08_verifyAddingMultipleProducts()"></include>
-                </methods>
-            </class>
-<!--            <class name="sanity.ShopDemo" />-->
+<!--            <class name="sanity.ShopDemo">-->
+<!--                <methods>-->
+<!--                    <include name="test06_verifyDeletionOfProductsFromCart()"></include>-->
+<!--                </methods>-->
+<!--            </class>-->
+            <class name="sanity.ShopDemo" />
+            <class name="sanity.ShopDemoAddProductTest" />
+            <class name="sanity.ShopDemoRemoveAllProductsTest" />
         </classes>
     </test>
 </suite>
