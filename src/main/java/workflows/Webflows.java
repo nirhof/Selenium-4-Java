@@ -39,7 +39,6 @@ public class Webflows extends CommonOps {
     @Step("business flow - Remove all Items from cart")
     public static void RemoveItem(int itemIndex) {
         UIActions.click(cartPage.btn_RemoveProduct.get(itemIndex));
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
     }
 
 
