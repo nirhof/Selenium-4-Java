@@ -24,8 +24,8 @@ public class ShopDemoAddProductTest extends CommonOps {
         // Sort the products by price from highest to lowest
         Webflows.SortProductsByPriceHLowToHigh();
         Webflows.addProductAndReturnToStore(9);
-        Webflows.addProductAndReturnToStore(10, "2");
-        Webflows.addProductAndReturnToStore(11, "3");
+        Webflows.addProductAndReturnToStore(10);
+        Webflows.addProductAndReturnToStore(11);
         driver.navigate().refresh();
         UIActions.mouseHover(products.btn_CartMenu);
         driver.navigate().refresh();

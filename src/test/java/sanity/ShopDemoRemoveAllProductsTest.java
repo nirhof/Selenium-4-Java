@@ -13,7 +13,7 @@ public class ShopDemoRemoveAllProductsTest extends CommonOps {
 
     // Test to verify removal of products from the cart
     @Test
-    public void test06_verifyremovalOfProductsFromCart() {
+    public void test06_verifyRemovalOfProductsFromCart() {
         // Click on the store button in the top menu
         UIActions.click(topMenu.btn_Store);
 

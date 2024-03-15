@@ -38,11 +38,19 @@ public class Webflows extends CommonOps {
         }
     }
 
-    @Step("business flow - Remove all Items from cart")
-    public static void RemoveItem(int itemIndex) {
-        UIActions.click(cartPage.btn_RemoveProduct.get(itemIndex));
+    // Method to remove item from cart
+    @Step("business flow - Remove item from cart")
+    public static void RemoveItem(int productNumber) {
+        List<WebElement> productRow = cartPage.ProductRow; // Get the current state of ProductRow
+        int length = productRow.size();
+        if (productNumber < 0 || productNumber >= length) {
+            throw new IllegalArgumentException("Invalid product number. It should be within the range [0, " + (length - 1) + "]");
+        }
+        UIActions.click(cartPage.btn_RemoveProduct.get(productNumber));
+        wait.until(ExpectedConditions.stalenessOf(cartPage.btn_RemoveProduct.get(productNumber)));
+        productRow = cartPage.ProductRow; // Refresh the ProductRow list
+        length = productRow.size(); // Recalculate the length after removal
     }
-
 
     @Step("business flow - get product price")
     public static String getProductPrice(WebElement productPrice) {
