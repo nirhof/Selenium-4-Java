@@ -112,5 +112,12 @@ public class Webflows extends CommonOps {
         driver.navigate().refresh();
 
     }
+
+    @Step("business flow - add product to the cart - default quantity")
+    public static void checkout(String firstName, String lastName) {
+        UIActions.updateText(checoutPage.txt_first_name, firstName);
+        UIActions.updateText(checoutPage.txt_last_name, lastName);
+
+    }
 }
 

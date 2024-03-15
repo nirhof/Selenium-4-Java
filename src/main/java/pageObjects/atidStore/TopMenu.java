@@ -20,5 +20,11 @@ public class TopMenu {
     @FindBy(css = "img[alt='ATID Demo Store']")
     public WebElement store_Logo;
 
+    @FindBy(linkText = "Checkout")
+    public WebElement btn_Checkout;
+
+    @FindBy(linkText = "View cart")
+    public WebElement btn_ViewCart;
+
 
 }

@@ -34,7 +34,7 @@ public class PerformanceHandler extends DevToolsHandler {
         System.out.println(data.get(metricName));
     }
 
-    public void VerifyPerformanceMetricTime(String performanceMetricName, double expectedPerformanceTime) {
+    public void verifyPerformanceMetricTime(String performanceMetricName, double expectedPerformanceTime) {
         Number actualPerformanceTimeNumber = data.get(performanceMetricName);
 
         // Convert to double for comparison

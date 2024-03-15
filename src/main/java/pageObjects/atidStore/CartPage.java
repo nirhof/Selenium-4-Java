@@ -27,5 +27,8 @@ public class CartPage {
 
     @FindBy(css = "div[class='cart-empty woocommerce-info']")
     public  WebElement txt_cartEmpty;
+
+    @FindBy(css = "a[class='checkout-button button alt wc-forward']")
+    public  WebElement btn_Checkout;
 }
 

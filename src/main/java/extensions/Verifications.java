@@ -263,7 +263,7 @@ public class Verifications extends CommonOps {
 
     public static HashMap<String, Number> data = new HashMap<String, Number>();
     @Step("Verify performance metric time lesser than expected")
-    public static void VerifyPerformanceMetricTime(String performanceMetricName, double expectedPerformanceTime) {
+    public static void verifyPerformanceMetricTime(String performanceMetricName, double expectedPerformanceTime) {
         double actualPerformanceTime = (double) data.get(performanceMetricName);
         Assert.assertTrue(actualPerformanceTime < expectedPerformanceTime,
                 "Actual performance time: " + actualPerformanceTime +
