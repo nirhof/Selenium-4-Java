@@ -31,8 +31,10 @@ public class Webflows extends CommonOps {
 
     @Step("business flow - Remove all Items from cart")
     public static void RemoveAllItem(List<WebElement> products) {
-        for (int i = 0; i < products.size(); i++) {
-            UIActions.click(cartPage.btn_RemoveProduct.get(i));
+        int length = products.size();
+        for (int i = 0; i < length; i++) {
+            UIActions.click(cartPage.btn_RemoveProduct.get(0));
+            wait.until(ExpectedConditions.stalenessOf(cartPage.btn_RemoveProduct.get(0)));
         }
     }
 
@@ -89,11 +91,8 @@ public class Webflows extends CommonOps {
         UIActions.updateText(products.txt_productQuantity, quantityValue);
         UIActions.click(products.btn_AddToCart);
         driver.navigate().back();
-//        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         driver.navigate().back();
-//        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         driver.navigate().refresh();
-//        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
     }
 
     @Step("business flow - add product to the cart - default quantity")
@@ -101,11 +100,9 @@ public class Webflows extends CommonOps {
         UIActions.click(storePage.productsImages.get(productIndex));
         UIActions.click(products.btn_AddToCart);
         driver.navigate().back();
-//        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         driver.navigate().back();
-//        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         driver.navigate().refresh();
-//        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+
     }
 }
 
