@@ -17,7 +17,7 @@ public class ShopDemoAddProductTest extends CommonOps {
 
     // Test to verify adding a number of products equals the expected count
     @Test
-    public void test08_verifyAddingMultipleProducts() {
+    public void test01_verifyAddingMultipleProducts() {
         // Click on the store button in the top menu
         UIActions.click(topMenu.btn_Store);
 
