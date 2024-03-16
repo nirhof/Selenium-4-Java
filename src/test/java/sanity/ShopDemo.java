@@ -121,7 +121,7 @@ public class ShopDemo extends CommonOps {
         Webflows.addProductAndReturnToStore(9);
         UIActions.mouseHover(products.btn_CartMenu);
         UIActions.click(cartPage.btn_Checkout);
-        Webflows.checkout("Nir","Levi");
+        Webflows.checkout("Nir","Levi","Microsoft","123123");
     }
 
     // Verify the performance metric for task duration

@@ -118,9 +118,14 @@ public class Webflows extends CommonOps {
     }
 
     @Step("business flow - add product to the cart - default quantity")
-    public static void checkout(String firstName, String lastName) {
+    public static void checkout(String firstName, String lastName, String companyName, String postCode) {
         UIActions.updateText(checoutPage.txt_first_name, firstName);
         UIActions.updateText(checoutPage.txt_last_name, lastName);
+        UIActions.updateText(checoutPage.txt_company_name, companyName);
+        UIActions.updateText(checoutPage.txt_postcode, postCode);
+        UIActions.updateText(checoutPage.txt_phone, "0546900242");
+        UIActions.updateText(checoutPage.txt_email, "nir108@gmail.com");
+
 
     }
 }
