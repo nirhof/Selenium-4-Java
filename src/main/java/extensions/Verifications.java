@@ -259,16 +259,6 @@ public class Verifications extends CommonOps {
         softAssert.assertEquals(element.getRect().getY(), yLocation);
         softAssert.assertAll();
     }
-
-
-    public static HashMap<String, Number> data = new HashMap<String, Number>();
-    @Step("Verify performance metric time lesser than expected")
-    public static void verifyPerformanceMetricTime(String performanceMetricName, double expectedPerformanceTime) {
-        double actualPerformanceTime = (double) data.get(performanceMetricName);
-        Assert.assertTrue(actualPerformanceTime < expectedPerformanceTime,
-                "Actual performance time: " + actualPerformanceTime +
-                        " is not less than expected performance time: " + expectedPerformanceTime);
-    }
 }
 
 

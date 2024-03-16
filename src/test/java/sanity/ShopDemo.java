@@ -63,7 +63,7 @@ public class ShopDemo extends CommonOps {
         Webflows.SortProductsByPriceHLowToHigh();
 
         // Click on the product
-        UIActions.click(storePage.productsImages.get(6));
+        UIActions.click(storePage.productsImages.get(7));
 
         String expectedProductName = products.txt_productName.getText();
         String expectedProductPrice = Webflows.getProductPrice(products.txt_productPrice);
@@ -150,6 +150,7 @@ public class ShopDemo extends CommonOps {
 
         // Verify the performance metric for task duration meets the expected threshold of 0.9 seconds.
         performanceHandler.verifyPerformanceMetricTime(PerformanceMetric.TaskDuration.toString(), 0.9);
+
     }
 
     // Method to execute after each test method

@@ -56,20 +56,22 @@ public class Webflows extends CommonOps {
     public static String getProductPrice(WebElement productPrice) {
         String productPriceText = productPrice.getText();
         // Count the number of times "₪" appears in the text
-        int count = productPriceText.length() - productPriceText.replace("₪", "").length();
+        int count = 0;
+
+        for (int i = 0; i < productPriceText.length(); i++) {
+            if (productPriceText.charAt(i) == '₪') {
+                count++;
+            }
+        }
 
         if (count == 1) {
             return productPriceText; // Return the input string if "₪" appears only once
+
         } else if (count == 2) {
             String[] prices = productPriceText.split("₪");
-            String price1 = prices[0].trim();
-            String price2 = prices[1].trim();
-            // Compare prices as strings
-            if (price1.compareTo(price2) < 0) {
-                return price1 + " ₪"; // Concatenate ".00" to the smaller price
-            } else {
-                return price2 + " ₪"; // Concatenate ".00" to the smaller price
-            }
+            // Assuming the first price is the regular price and the second one is the sale price
+            String salePrice = prices[1].trim(); // Sale Price
+            return salePrice + " ₪"; // Return the sale price with currency symbol
         }
         return "Invalid input: More than two prices found";
     }
