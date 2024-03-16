@@ -21,7 +21,7 @@ public class ShopDemoAddProductTest extends CommonOps {
         // Click on the store button in the top menu
         UIActions.click(topMenu.btn_Store);
 
-        // Sort the products by price from highest to lowest
+        // Sort the products by price from lowest to Highest
         Webflows.SortProductsByPriceHLowToHigh();
         Webflows.addProductAndReturnToStore(9);
         Webflows.addProductAndReturnToStore(10);
