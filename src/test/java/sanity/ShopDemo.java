@@ -63,7 +63,7 @@ public class ShopDemo extends CommonOps {
         Webflows.SortProductsByPriceHLowToHigh();
 
         // Click on the product
-        UIActions.click(storePage.productsImages.get(7));
+        UIActions.click(storePage.productsImages.get(6));
 
         String expectedProductName = products.txt_productName.getText();
         String expectedProductPrice = Webflows.getProductPrice(products.txt_productPrice);

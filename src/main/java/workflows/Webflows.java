@@ -78,14 +78,16 @@ public class Webflows extends CommonOps {
 
     @Step("business flow - get product subtotal price")
     public static String getSubTotalPrice(String productPrice, String quantityValue) {
-        String[] parts = productPrice.split(" "); // Split the string by space
-        String priceString = parts[0]; // Get the first part, which should be the numerical value
-        priceString = priceString.replaceAll("[^0-9.]+", ""); // Remove non-numeric characters except for the decimal point
-        double price = Double.parseDouble(priceString); // Convert the extracted numerical part to an integer
-        int quantity = Integer.parseInt(quantityValue);
-        double productSubtotalPrice = price * quantity; // Calculate subtotal price as a double
+        // Remove all characters from the productPrice string except for digits (0-9) and the decimal point (.)
+        double price = Double.parseDouble(productPrice.replaceAll("[^0-9.]+", ""));
 
-        // Format the productSubtotalPrice to have two decimal places and append " ₪"
+        // Convert quantityValue string to an integer
+        int quantity = Integer.parseInt(quantityValue);
+
+        // Calculate the subtotal price by multiplying the price by the quantity
+        double productSubtotalPrice = price * quantity;
+
+        // Append "0 ₪" directly to the subtotal price and return as a string
         return productSubtotalPrice + "0 ₪";
     }
 
