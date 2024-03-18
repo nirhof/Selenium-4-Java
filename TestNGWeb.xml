@@ -4,9 +4,9 @@
     <test name="Web Tests">
         <parameter name="PlatformName" value="web"></parameter>
         <classes>
-            <class name="sanity.ShopDemoAddProductTest">
+            <class name="sanity.ShopDemoRemoveProductsTest">
                 <methods>
-                    <include name="test01_verifyAddingMultipleProducts()"></include>
+                    <include name="test01_verifyRemovalOfProductsFromCart()"></include>
                 </methods>
             </class>
 <!--            <class name="sanity.ShopDemo" />-->

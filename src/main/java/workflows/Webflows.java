@@ -19,7 +19,7 @@ public class Webflows extends CommonOps {
     }
 
     @Step("business flow - sort products by price Lowest to Highest")
-    public static void SortProductsByPriceHLowToHigh() {
+    public static void SortProductsByPriceLowToHigh() {
         UIActions.selectDropDownByValue(storePage.combo_OrderByFilter, "price");
     }
 
@@ -48,8 +48,6 @@ public class Webflows extends CommonOps {
         }
         UIActions.click(cartPage.btn_RemoveProduct.get(productNumber));
         wait.until(ExpectedConditions.stalenessOf(cartPage.btn_RemoveProduct.get(productNumber)));
-        productRow = cartPage.ProductRow; // Refresh the ProductRow list
-        length = productRow.size(); // Recalculate the length after removal
     }
 
     @Step("business flow - get product price")
@@ -104,7 +102,7 @@ public class Webflows extends CommonOps {
         UIActions.click(products.btn_AddToCart);
         driver.navigate().back();
         driver.navigate().back();
-        driver.navigate().refresh();
+
     }
 
     @Step("business flow - add product to the cart - default quantity")
@@ -113,7 +111,6 @@ public class Webflows extends CommonOps {
         UIActions.click(products.btn_AddToCart);
         driver.navigate().back();
         driver.navigate().back();
-        driver.navigate().refresh();
 
     }
 

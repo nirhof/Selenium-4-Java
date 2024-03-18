@@ -13,7 +13,7 @@ public class StorePage {
     public WebElement btn_Submit;
     @FindBy(css = "a[class='woocommerce-LoopProduct-link woocommerce-loop-product__link']")
     public List<WebElement> products;
-    @FindBy(css = "img[class='attachment-woocommerce_thumbnail size-woocommerce_thumbnail']")
+    @FindBy(css = "div[class='astra-shop-thumbnail-wrap']>a>img")
     public List<WebElement> productsImages;
     @FindBy(css = "select[name='orderby']")
     public WebElement combo_OrderByFilter;

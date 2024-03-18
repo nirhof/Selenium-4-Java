@@ -17,24 +17,24 @@ public class ShopDemoRemoveProductsTest extends CommonOps {
         // Click on the store button in the top menu
         UIActions.click(topMenu.btn_Store);
 
-        // Sort the products by price from highest to lowest
-        Webflows.SortProductsByPriceHLowToHigh();
+        // Sort the products by price from lowest to highest
+        Webflows.SortProductsByPriceLowToHigh();
 
         // Adding products to cart
-        Webflows.addProductAndReturnToStore(9);
-        Webflows.addProductAndReturnToStore(10);
-        Webflows.addProductAndReturnToStore(11);
-        Webflows.addProductAndReturnToStore(12);
+        Webflows.addProductAndReturnToStore(2);
+        Webflows.addProductAndReturnToStore(4);
+        Webflows.addProductAndReturnToStore(5);
+        Webflows.addProductAndReturnToStore(6);
 
-        driver.navigate().refresh();
-        // Hover over the cart menu
+        // go to cart page
         UIActions.mouseHover(products.btn_CartMenu);
-        driver.navigate().refresh();
-        // Remove all items from the cart
-        Webflows.RemoveItem(1);
+
+        // Remove items from the cart
+        Webflows.RemoveItem(3);
+        Webflows.RemoveItem(0);
 
         // Verify number of products in the cart equals to expected
-        Verifications.numberOfElements(cartPage.ProductRow, 3); // verify number of products added equals to expected
+        Verifications.numberOfElements(cartPage.ProductRow, 2); // verify number of products added equals to expected
     }
     @AfterMethod
     public void afterMethod() {

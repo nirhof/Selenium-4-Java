@@ -17,16 +17,16 @@ public class ShopDemoRemoveAllProductsTest extends CommonOps {
         // Click on the store button in the top menu
         UIActions.click(topMenu.btn_Store);
 
-        // Sort the products by price from highest to lowest
-        Webflows.SortProductsByPriceHLowToHigh();
-        Webflows.addProductAndReturnToStore(9);
-        Webflows.addProductAndReturnToStore(10, "3");
-        Webflows.addProductAndReturnToStore(11, "2");
+    // Sort the products by price from lowest to highest
+        Webflows.SortProductsByPriceLowToHigh();
+        Webflows.addProductAndReturnToStore(2);
+        Webflows.addProductAndReturnToStore(4, "3");
+        Webflows.addProductAndReturnToStore(5, "2");
 
-        driver.navigate().refresh();
-        // Hover over the cart menu
+
+        // go to cart page
         UIActions.mouseHover(products.btn_CartMenu);
-        driver.navigate().refresh();
+
         // Remove all items from the cart
         Webflows.RemoveAllItem(cartPage.ProductRow);
 

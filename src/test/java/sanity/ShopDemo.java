@@ -59,8 +59,8 @@ public class ShopDemo extends CommonOps {
         // Click on the store button in the top menu
         UIActions.click(topMenu.btn_Store);
 
-        // Sort the products by price from highest to lowest
-        Webflows.SortProductsByPriceHLowToHigh();
+    // Sort the products by price from lowest to highest
+        Webflows.SortProductsByPriceLowToHigh();
 
         // Click on the product
         UIActions.click(storePage.productsImages.get(6));
@@ -74,7 +74,8 @@ public class ShopDemo extends CommonOps {
         // Update product quantity and add to cart
         Webflows.addProductWithQuantity(productQuantity_txt, quantityValue);
 
-        // Hover over the cart menu and verify the product details in cart page
+        // go to cart page
+        // verify the product details in cart page
         UIActions.mouseHover(products.btn_CartMenu);
 
         // Define the list of elements representing the row
@@ -116,8 +117,8 @@ public class ShopDemo extends CommonOps {
         // Click on the store button in the top menu
         UIActions.click(topMenu.btn_Store);
 
-        // Sort the products by price from highest to lowest
-        Webflows.SortProductsByPriceHLowToHigh();
+        // Sort the products by price from lowest to highest
+        Webflows.SortProductsByPriceLowToHigh();
         Webflows.addProductAndReturnToStore(9);
         UIActions.mouseHover(products.btn_CartMenu);
         UIActions.click(cartPage.btn_Checkout);
@@ -136,12 +137,12 @@ public class ShopDemo extends CommonOps {
         UIActions.click(topMenu.btn_Store);
 
         // Sort the products by price from highest to lowest
-        Webflows.SortProductsByPriceHLowToHigh();
+        Webflows.SortProductsByPriceLowToHigh();
 
         // Add a product to the cart and return to the store
-        Webflows.addProductAndReturnToStore(9);
+        Webflows.addProductAndReturnToStore(2);
 
-        // Hover over the cart menu
+        // go to cart page
         UIActions.mouseHover(products.btn_CartMenu);
 
         // Print performance metrics

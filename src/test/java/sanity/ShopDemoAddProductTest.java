@@ -21,14 +21,14 @@ public class ShopDemoAddProductTest extends CommonOps {
         // Click on the store button in the top menu
         UIActions.click(topMenu.btn_Store);
 
-        // Sort the products by price from lowest to Highest
-        Webflows.SortProductsByPriceHLowToHigh();
-        Webflows.addProductAndReturnToStore(9);
-        Webflows.addProductAndReturnToStore(10);
-        Webflows.addProductAndReturnToStore(11);
-        driver.navigate().refresh();
+        // Sort the products by price from lowest to highest
+        Webflows.SortProductsByPriceLowToHigh();
+        Webflows.addProductAndReturnToStore(2);
+        Webflows.addProductAndReturnToStore(4);
+        Webflows.addProductAndReturnToStore(5);
+
+        // go to cart page
         UIActions.mouseHover(products.btn_CartMenu);
-        driver.navigate().refresh();
 
         Verifications.numberOfElements(cartPage.ProductRow, 3); // verify number of products added equals to expected
     }
