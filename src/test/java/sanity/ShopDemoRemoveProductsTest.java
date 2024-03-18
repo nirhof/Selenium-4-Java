@@ -38,7 +38,7 @@ public class ShopDemoRemoveProductsTest extends CommonOps {
     }
     @AfterMethod
     public void afterMethod() {
-        driver.get(getData("url")); // Navigate back to the URL after each test method execution
+        driver.get(getData("url")); // Navigate back to the Atid Store URL after each test method execution
 
     }
 }
