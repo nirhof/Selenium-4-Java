@@ -13,6 +13,7 @@
             <class name="sanity.ShopDemoAddProductTest" />
             <class name="sanity.ShopDemoRemoveAllProductsTest" />
             <class name="sanity.ShopDemoRemoveProductsTest" />
+            <class name="sanity.ShopDemoPerformanceTesting" />
 
         </classes>
     </test>
