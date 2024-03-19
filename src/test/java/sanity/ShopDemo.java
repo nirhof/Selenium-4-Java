@@ -2,6 +2,7 @@ package sanity;
 
 import extensions.UIActions;
 import extensions.Verifications;
+import io.qameta.allure.Description;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
@@ -20,7 +21,8 @@ import java.util.List;
 public class ShopDemo extends CommonOps {
 
     // Test to verify the number of shoe products
-    @Test
+    @Test(description = "Test01 - Verify number of products")
+    @Description("This test verify the number of products in the cart page page")
     public void test01_verifyNumberOfShoesProducts() {
         UIActions.click(topMenu.btn_Store); // Click on the store button in the top menu
         Webflows.searchForProduct("shoes"); // Search for shoes in the store
@@ -28,7 +30,8 @@ public class ShopDemo extends CommonOps {
     }
 
     // Test to verify the presence of the "About Atid Store - Who We Are" text
-    @Test
+    @Test(description = "Test02 - Verify About Atid Text")
+    @Description("This test verifies the text of the 'About Atid Store - Who We Are'")
     public void test02_verifyAboutAtidText() {
         UIActions.click(topMenu.btn_About); // Click on the About button in the top menu
         String whoWeAreText = "ATID Demo Store was created by ATID College dedicated employees. This is a complete demo site for practicing QA & Test Automation methodologies. Don't think for a second you can actually buy here something cause you can't ! This Demo Store contains software bugs which were put intentionally and your job is to locate them Good luck folks, Yoni Flenner - ATID College";
@@ -36,7 +39,8 @@ public class ShopDemo extends CommonOps {
     }
 
     // Test to verify the anchor bracelet image
-    @Test
+    @Test(description = "Test03 - Verify Anchor Bracelet Image")
+    @Description("This test verifies the presence of the anchor bracelet image")
     public void test03_verifyAnchorBraceletImage() {
         UIActions.click(topMenu.btn_Store); // Click on the store button in the top menu
         WebElement anchorBraceletImage = storePage.productsImages.get(5); // Get the anchor bracelet image element
@@ -45,7 +49,8 @@ public class ShopDemo extends CommonOps {
     }
 
     // Test to verify the highest product price
-    @Test
+    @Test(description = "Test04 - Verify Highest Product Price")
+    @Description("This test verifies the highest product price")
     public void test04_verifyHighestProductPrice() {
         UIActions.click(topMenu.btn_Store); // Click on the store button in the top menu
         Webflows.SortProductsByPriceHighToLow(); // Sort the products by price from highest to lowest
@@ -54,7 +59,8 @@ public class ShopDemo extends CommonOps {
     }
 
     // Test to verify a product added to the cart
-    @Test
+    @Test(description = "Test05 - Verify Details Of Product Added To Cart")
+    @Description("This test verifies the details of a product added to the cart")
     public void test05_verifyDetailsOfProductAddedToCart() throws Exception {
         // Click on the store button in the top menu
         UIActions.click(topMenu.btn_Store);
@@ -102,7 +108,8 @@ public class ShopDemo extends CommonOps {
 
 
     // Test to verify that the search products element is located correctly
-    @Test
+    @Test(description = "Test06 - Verify Search Products Element Location")
+    @Description("This test verifies the location of the search products element")
     public void test06_verifySearchProductsElementLocation() {
         // Click the Store button in the top menu
         UIActions.click(topMenu.btn_Store);
@@ -112,7 +119,8 @@ public class ShopDemo extends CommonOps {
     }
 
     // Test to verify checkout
-    @Test
+    @Test(description = "Test07 - Verify Checkout")
+    @Description("This test verifies the checkout process")
     public void test07_verifyCheckout() throws Exception {
         // Click on the store button in the top menu
         UIActions.click(topMenu.btn_Store);
@@ -123,6 +131,7 @@ public class ShopDemo extends CommonOps {
         UIActions.mouseHover(products.btn_CartMenu);
         UIActions.click(cartPage.btn_Checkout);
         Webflows.checkout("Nir","Levi","Microsoft","123123");
+        // TODO
     }
 
 
