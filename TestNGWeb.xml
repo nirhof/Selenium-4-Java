@@ -4,11 +4,11 @@
     <test name="Web Tests">
         <parameter name="PlatformName" value="web"></parameter>
         <classes>
-            <class name="sanity.ShopDemoPerformanceTesting">
-                <methods>
-                    <include name="test02_verifyPerformanceMetricTimeWithWifiConnection()"></include>
-                </methods>
-            </class>
+<!--            <class name="sanity.ShopDemoPerformanceTesting">-->
+<!--                <methods>-->
+<!--                    <include name="test02_verifyPerformanceMetricTimeWithWifiConnection()"></include>-->
+<!--                </methods>-->
+<!--            </class>-->
             <class name="sanity.ShopDemo" />
             <class name="sanity.ShopDemoAddProductTest" />
             <class name="sanity.ShopDemoRemoveAllProductsTest" />

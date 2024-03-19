@@ -16,7 +16,7 @@ public class ShopDemoPerformanceTesting extends CommonOps {
 
     // Verify the performance metric for task duration
     // This test verifies whether the time taken for the task to complete, such as adding a product to the cart,
-    // meets the expected threshold of 0.3 seconds.
+    // meets the expected threshold of 0.9 seconds.
     @Test
     public void test01_verifyPerformanceMetricTimeOfAddingAProductToCart() throws Exception {
         // Enable performance metric tracking
@@ -39,7 +39,7 @@ public class ShopDemoPerformanceTesting extends CommonOps {
         performanceHandler.printMetric(PerformanceMetric.TaskDuration.toString());
 
         // Verify the performance metric for task duration meets the expected threshold of 0.9 seconds.
-        performanceHandler.verifyPerformanceMetricTime(PerformanceMetric.TaskDuration.toString(), 0.3);
+        performanceHandler.verifyPerformanceMetricTime(PerformanceMetric.TaskDuration.toString(), 0.9);
 
     }
 

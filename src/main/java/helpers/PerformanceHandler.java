@@ -41,7 +41,6 @@ public class PerformanceHandler extends DevToolsHandler {
         double actualPerformanceTime = actualPerformanceTimeNumber.doubleValue();
 
         Assert.assertTrue(actualPerformanceTime < expectedPerformanceTime,
-                "Actual performance time: " + actualPerformanceTime +
-                        " is not less than expected performance time: " + expectedPerformanceTime);
+                "Actual performance time: " + actualPerformanceTime + " is not less than expected performance time: " + expectedPerformanceTime);
     }
 }
