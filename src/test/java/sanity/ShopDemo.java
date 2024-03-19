@@ -30,15 +30,15 @@ public class ShopDemo extends CommonOps {
         Verifications.verifyTextInElement(products.txt_productName,productName); // Verify the name of product
     }
 
-    // Test to verify the number of shoe products
-    @Test(description = "Test02 - Verify number of products",dataProvider = "data-provider", dataProviderClass = utilities.ManageDDT.class)
-    @Description("This test verify the number of products in the cart page page")
-    public void test01_verifyNumberOfSearchedProducts(String searchKey,String numberOfProducts, String comment) {
+    // Test to search for a keyword and validate the number of products in the results
+    @Test(description = "Test02 - Verify number of searched products", dataProvider = "data-provider", dataProviderClass = utilities.ManageDDT.class)
+    @Description("This test verifies the number of searched products in the product page")
+    public void test01_verifyNumberOfSearchedProducts(String searchKey, String numberOfProducts, String comment) {
         UIActions.click(topMenu.btn_Store); // Click on the store button in the top menu
-        Webflows.searchForProduct(searchKey); // Search for products in the store
-        System.out.println(comment);
+        Webflows.searchForProduct(searchKey); // Search for the keyword in the store
+        System.out.println(comment); // Print the comment provided in the test data
         int expectedResult = Integer.parseInt(numberOfProducts);
-        Verifications.numberOfElements(storePage.products, expectedResult); // Verify the number of products is equal to expected
+        Verifications.numberOfElements(storePage.products, expectedResult); // Verify that the number of products is equal to the expected value
     }
 
     // Test to verify the presence of the "About Atid Store - Who We Are" text
