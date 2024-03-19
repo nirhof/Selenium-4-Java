@@ -47,22 +47,18 @@ public class ManageDDT extends CommonOps {
         List<String> csvData = readCSV(filePath); // Read data from CSV file and store in a list
 
         int numRows = csvData.size();
-        int numCols = csvData.get(0).split(",,,").length;
+        int numCols = csvData.get(0).split(",").length;
 
         // Initialize a 2D array to hold the data dynamically
         Object[][] data = new Object[numRows][numCols];
 
         for (int i = 0; i < numRows; i++) {
             // Split each line of CSV data using the delimiter ",,," and assign to respective elements in the 2D array
-            String[] rowData = csvData.get(i).split(",,,");
+            String[] rowData = csvData.get(i).split(",");
             for (int j = 0; j < numCols; j++) {
                 data[i][j] = rowData[j];
             }
 
-            System.out.println("user: " + data[i][0]);
-            System.out.println("password: " + data[i][1]);
-            System.out.println("expected message: " + data[i][2]);
-            System.out.println("==================================");
         }
 
         return data; // Return the formatted 2D array

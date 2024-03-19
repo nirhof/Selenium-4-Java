@@ -8,6 +8,7 @@ import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 import java.io.File;
+import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 public class Listeners extends CommonOps implements ITestListener {
@@ -89,7 +90,7 @@ public class Listeners extends CommonOps implements ITestListener {
     public void onTestFailure(ITestResult test) {
         if (!platform.equalsIgnoreCase("api")) {
 
-            Uninterruptibles.sleepUninterruptibly(2, TimeUnit.SECONDS);
+            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
             System.out.println("------------ Test: " + test.getName() + " Failed ------------");
 
             // Stop Monte Test recording

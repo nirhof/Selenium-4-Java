@@ -21,16 +21,28 @@ import java.util.List;
 public class ShopDemo extends CommonOps {
 
     // Test to verify the number of shoe products
-    @Test(description = "Test01 - Verify number of products")
-    @Description("This test verify the number of products in the cart page page")
-    public void test01_verifyNumberOfShoesProducts() {
+    @Test(description = "Test01 - Verify search for a product")
+    @Description("This test verify the name of a product in the search process")
+    public void test01_verifySearchForSingleProduct() {
+        String productName = "Anchor Bracelet";
         UIActions.click(topMenu.btn_Store); // Click on the store button in the top menu
-        Webflows.searchForProduct("shoes"); // Search for shoes in the store
-        Verifications.numberOfElements(storePage.products, 5); // Verify the number of shoe products is equal to expected
+        Webflows.searchForProduct(productName); // Search for product in the store
+        Verifications.verifyTextInElement(products.txt_productName,productName); // Verify the name of product
+    }
+
+    // Test to verify the number of shoe products
+    @Test(description = "Test02 - Verify number of products",dataProvider = "data-provider", dataProviderClass = utilities.ManageDDT.class)
+    @Description("This test verify the number of products in the cart page page")
+    public void test01_verifyNumberOfSearchedProducts(String searchKey,String numberOfProducts, String comment) {
+        UIActions.click(topMenu.btn_Store); // Click on the store button in the top menu
+        Webflows.searchForProduct(searchKey); // Search for products in the store
+        System.out.println(comment);
+        int expectedResult = Integer.parseInt(numberOfProducts);
+        Verifications.numberOfElements(storePage.products, expectedResult); // Verify the number of products is equal to expected
     }
 
     // Test to verify the presence of the "About Atid Store - Who We Are" text
-    @Test(description = "Test02 - Verify About Atid Text")
+    @Test(description = "Test03 - Verify About Atid Text")
     @Description("This test verifies the text of the 'About Atid Store - Who We Are'")
     public void test02_verifyAboutAtidText() {
         UIActions.click(topMenu.btn_About); // Click on the About button in the top menu
@@ -39,7 +51,7 @@ public class ShopDemo extends CommonOps {
     }
 
     // Test to verify the anchor bracelet image
-    @Test(description = "Test03 - Verify Anchor Bracelet Image")
+    @Test(description = "Test04 - Verify Anchor Bracelet Image")
     @Description("This test verifies the presence of the anchor bracelet image")
     public void test03_verifyAnchorBraceletImage() {
         UIActions.click(topMenu.btn_Store); // Click on the store button in the top menu
@@ -49,7 +61,7 @@ public class ShopDemo extends CommonOps {
     }
 
     // Test to verify the highest product price
-    @Test(description = "Test04 - Verify Highest Product Price")
+    @Test(description = "Test05 - Verify Highest Product Price")
     @Description("This test verifies the highest product price")
     public void test04_verifyHighestProductPrice() {
         UIActions.click(topMenu.btn_Store); // Click on the store button in the top menu
@@ -59,7 +71,7 @@ public class ShopDemo extends CommonOps {
     }
 
     // Test to verify a product added to the cart
-    @Test(description = "Test05 - Verify Details Of Product Added To Cart")
+    @Test(description = "Test06 - Verify Details Of Product Added To Cart")
     @Description("This test verifies the details of a product added to the cart")
     public void test05_verifyDetailsOfProductAddedToCart() throws Exception {
         // Click on the store button in the top menu
@@ -108,7 +120,7 @@ public class ShopDemo extends CommonOps {
 
 
     // Test to verify that the search products element is located correctly
-    @Test(description = "Test06 - Verify Search Products Element Location")
+    @Test(description = "Test07 - Verify Search Products Element Location")
     @Description("This test verifies the location of the search products element")
     public void test06_verifySearchProductsElementLocation() {
         // Click the Store button in the top menu
@@ -119,7 +131,7 @@ public class ShopDemo extends CommonOps {
     }
 
     // Test to verify checkout
-    @Test(description = "Test07 - Verify Checkout")
+    @Test(description = "Test08 - Verify Checkout")
     @Description("This test verifies the checkout process")
     public void test07_verifyCheckout() throws Exception {
         // Click on the store button in the top menu

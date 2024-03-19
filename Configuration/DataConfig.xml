@@ -36,7 +36,7 @@
     <ImageRepo>C:\\Automation\\Projects\\Selenium4Java\\Images\\</ImageRepo>
 
     <!-- Data Driven Testing -->
-    <DDTFile>./DDTFiles/users.csv</DDTFile>
+    <DDTFile>./DDTFiles/products.csv</DDTFile>
 
     <!-- Database - Connection details-->
     <DBURL>jdbc:mysql://sql11.freemysqlhosting.net:3306/sql11648865</DBURL>
