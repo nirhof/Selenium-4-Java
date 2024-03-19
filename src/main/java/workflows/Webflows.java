@@ -2,6 +2,7 @@ package workflows;
 
 import extensions.UIActions;
 import io.qameta.allure.Step;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import utilities.CommonOps;
@@ -21,6 +22,11 @@ public class Webflows extends CommonOps {
     @Step("business flow - sort products by price Lowest to Highest")
     public static void SortProductsByPriceLowToHigh() {
         UIActions.selectDropDownByValue(storePage.combo_OrderByFilter, "price");
+    }
+
+    @Step("business flow - sort products by latest ")
+    public static void SortProductsByLatest() {
+        UIActions.selectDropDownByValue(storePage.combo_OrderByFilter, "date");
     }
 
     @Step("business flow - search for product")
@@ -96,10 +102,17 @@ public class Webflows extends CommonOps {
     }
 
     @Step("business flow - add product to the cart (choose product quantity)")
-    public static void addProductAndReturnToStore(int productIndex, String quantityValue) {
-        UIActions.click(storePage.productsImages.get(productIndex));
-        UIActions.updateText(products.txt_productQuantity, quantityValue);
-        UIActions.click(products.btn_AddToCart);
+    public static void addProductAndReturnToStore(int productIndex, String quantityValue) throws Exception {
+        WebElement productElement = storePage.productsImages.get(productIndex);
+        if (productElement.isDisplayed()) {
+            UIActions.click(productElement);
+            UIActions.updateText(products.txt_productQuantity, quantityValue);
+            UIActions.click(products.btn_AddToCart);
+        }
+        else
+        {
+            throw new NoSuchElementException("Product is out of stock or not available.");
+        }
         driver.navigate().back();
         driver.navigate().back();
 
@@ -107,14 +120,19 @@ public class Webflows extends CommonOps {
 
     @Step("business flow - add product to the cart - default quantity")
     public static void addProductAndReturnToStore(int productIndex) {
-        UIActions.click(storePage.productsImages.get(productIndex));
-        UIActions.click(products.btn_AddToCart);
+        WebElement productElement = storePage.productsImages.get(productIndex);
+        if (productElement.isDisplayed()) {
+            UIActions.click(productElement);
+            UIActions.click(products.btn_AddToCart);
+        } else {
+            throw new NoSuchElementException("Product is out of stock or not available.");
+        }
         driver.navigate().back();
         driver.navigate().back();
 
     }
 
-    @Step("business flow - add product to the cart - default quantity")
+    @Step("business flow - checkout")
     public static void checkout(String firstName, String lastName, String companyName, String postCode) {
         UIActions.updateText(checoutPage.txt_first_name, firstName);
         UIActions.updateText(checoutPage.txt_last_name, lastName);

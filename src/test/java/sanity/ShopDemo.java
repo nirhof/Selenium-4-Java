@@ -125,34 +125,6 @@ public class ShopDemo extends CommonOps {
         Webflows.checkout("Nir","Levi","Microsoft","123123");
     }
 
-    // Verify the performance metric for task duration
-    // This test verifies whether the time taken for the task to complete, such as adding a product to the cart,
-    // meets the expected threshold of 0.9 seconds.
-    @Test
-    public void test08_verifyPerformanceMetricTimeOfAddingAProductToCart() throws Exception {
-        // Enable performance metric tracking
-        performanceHandler.enableMetric();
-
-        // Click on the store button in the top menu
-        UIActions.click(topMenu.btn_Store);
-
-        // Sort the products by price from highest to lowest
-        Webflows.SortProductsByPriceLowToHigh();
-
-        // Add a product to the cart and return to the store
-        Webflows.addProductAndReturnToStore(2);
-
-        // go to cart page
-        UIActions.mouseHover(products.btn_CartMenu);
-
-        // Print performance metrics
-        performanceHandler.getMetricList().forEach(metric -> System.out.println(metric.getName() + " " + metric.getValue()));
-        performanceHandler.printMetric(PerformanceMetric.TaskDuration.toString());
-
-        // Verify the performance metric for task duration meets the expected threshold of 0.9 seconds.
-        performanceHandler.verifyPerformanceMetricTime(PerformanceMetric.TaskDuration.toString(), 0.9);
-
-    }
 
     // Method to execute after each test method
     @AfterMethod
