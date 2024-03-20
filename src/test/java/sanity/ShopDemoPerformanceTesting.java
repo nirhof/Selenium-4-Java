@@ -68,7 +68,7 @@ public class ShopDemoPerformanceTesting extends CommonOps {
     }
     @AfterMethod
     public void afterMethod() {
-        Webflows.RemoveAllItem(cartPage.ProductRow);
+        Webflows.RemoveAllItem(cartPage.ProductRow); // Remove all the prodcuts from the cart after each test method execution
         driver.get(getData("url")); // Navigate back to the Atid Store URL after each test method execution
 
     }
