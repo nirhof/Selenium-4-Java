@@ -25,7 +25,6 @@ public class ShopDemoRemoveAllProductsTest extends CommonOps {
         Webflows.addProductAndReturnToStore(4, "3");
         Webflows.addProductAndReturnToStore(5, "2");
 
-
         // go to cart page
         UIActions.mouseHover(products.btn_CartMenu);
 
