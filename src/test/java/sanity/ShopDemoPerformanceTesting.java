@@ -1,7 +1,6 @@
 package sanity;
 
 import extensions.UIActions;
-import extensions.Verifications;
 import io.qameta.allure.Description;
 import org.openqa.selenium.devtools.v85.network.model.ConnectionType;
 import org.testng.annotations.AfterMethod;
