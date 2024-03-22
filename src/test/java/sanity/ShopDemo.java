@@ -23,7 +23,7 @@ public class ShopDemo extends CommonOps {
     // Test to verify the search for a specific product
     @Test(description = "Test01 - Verify search for a specific product")
     @Description("This test verifies the search process of specific product")
-    public void test01_verifySearchForSingleProduct() {
+    public void test01_verifySearchForSpecificProduct() {
         String productName = "Anchor Bracelet";
         UIActions.click(topMenu.btn_Store); // Clicks on the store button in the top menu
         Webflows.searchForProduct(productName); // Initiates a search for the specified product in the store
@@ -33,7 +33,7 @@ public class ShopDemo extends CommonOps {
     // Test to search for a keyword and validate the number of products in the results
     @Test(description = "Test02 - Verify search for a keyword and validate the number of products in the results", dataProvider = "data-provider", dataProviderClass = utilities.ManageDDT.class)
     @Description("This test verifies the number of products obtained after searching for a keyword.")
-    public void test02_verifyNumberOfSearchedProducts(String searchKey, String numberOfProducts) {
+    public void test02_SearchForKeywordAndVerifyProductsCount(String searchKey, String numberOfProducts) {
         UIActions.click(topMenu.btn_Store); // Clicks on the store button in the top menu
         Webflows.searchForProduct(searchKey); // Searches for the keyword in the store
         int expectedResult = Integer.parseInt(numberOfProducts);
