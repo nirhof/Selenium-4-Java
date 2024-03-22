@@ -2,6 +2,7 @@ package sanity;
 
 import extensions.UIActions;
 import extensions.Verifications;
+import io.qameta.allure.Description;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
@@ -12,7 +13,8 @@ import workflows.Webflows;
 public class ShopDemoRemoveProductsTest extends CommonOps {
 
     // Test to verify removal of products from the cart
-    @Test
+    @Test(description = "Test01 - Verify removal of products from the cart")
+    @Description("This test verifies the functionality of removing products from the cart.")
     public void test01_verifyRemovalOfProductsFromCart() {
         // Click on the store button in the top menu
         UIActions.click(topMenu.btn_Store);

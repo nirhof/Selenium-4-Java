@@ -2,6 +2,7 @@ package sanity;
 
 import extensions.UIActions;
 import extensions.Verifications;
+import io.qameta.allure.Description;
 import org.openqa.selenium.devtools.v85.network.model.ConnectionType;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Listeners;
@@ -17,7 +18,8 @@ public class ShopDemoPerformanceTesting extends CommonOps {
     // Verify the performance metric for task duration
     // This test verifies whether the time taken for the task to complete, such as adding a product to the cart,
     // meets the expected threshold of 0.9 seconds.
-    @Test
+    @Test(description = "Test01 - Verify performance metric for adding a product to the cart")
+    @Description("This test verifies whether the time taken to add a product to the cart meets the expected threshold.")
     public void test01_verifyPerformanceMetricTimeOfAddingAProductToCart() throws Exception {
         // Enable performance metric tracking
         performanceHandler.enableMetric();
@@ -44,9 +46,10 @@ public class ShopDemoPerformanceTesting extends CommonOps {
     }
 
     // Verify the performance metric for task duration
-// This test verifies whether the time taken for the task to complete, such as sorting products by price,
-// meets the expected threshold of 0.001 seconds.
-    @Test
+    // This test verifies whether the time taken for the task to complete, such as sorting products by price,
+    // meets the expected threshold of 0.001 seconds.
+    @Test(description = "Test02 - Verify the performance metric for task duration with WiFi connection")
+    @Description("This test verifies that the performance metric for task duration with WiFi connection meets the expected threshold.")
     public void test02_verifyPerformanceMetricTimeWithWifiConnection() throws Exception {
         // Enable performance metric tracking
         performanceHandler.enableMetric();

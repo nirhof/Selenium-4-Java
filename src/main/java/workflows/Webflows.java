@@ -106,7 +106,7 @@ public class Webflows extends CommonOps {
         List<WebElement> outOfStockIndicator = products.outOfStockIndicator; // Get the current state of ProductRow
 
         if (outOfStockIndicator.size() > 0) {
-            System.out.println("Product out of stock. back to store");
+            System.out.println("Product is out of stock. back to store");
             driver.navigate().back();
         } else {
             UIActions.updateText(products.txt_productQuantity, quantityValue);
@@ -124,7 +124,7 @@ public class Webflows extends CommonOps {
         List<WebElement> outOfStockIndicator = products.outOfStockIndicator; // Get the current state of ProductRow
 
         if (outOfStockIndicator.size() > 0) {
-            System.out.println("Product out of stock. back to store");
+            System.out.println("Product is out of stock. back to store");
             driver.navigate().back();
         } else {
             UIActions.click(products.btn_AddToCart);
@@ -142,8 +142,6 @@ public class Webflows extends CommonOps {
         UIActions.updateText(checoutPage.txt_postcode, postCode);
         UIActions.updateText(checoutPage.txt_phone, "0546900242");
         UIActions.updateText(checoutPage.txt_email, "nir108@gmail.com");
-
-
     }
 }
 

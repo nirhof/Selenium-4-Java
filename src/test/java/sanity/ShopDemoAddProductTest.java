@@ -2,6 +2,7 @@ package sanity;
 
 import extensions.UIActions;
 import extensions.Verifications;
+import io.qameta.allure.Description;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Listeners;
@@ -16,7 +17,8 @@ import java.util.List;
 public class ShopDemoAddProductTest extends CommonOps {
 
     // Test to verify adding a number of products equals the expected count
-    @Test
+    @Test(description = "Test01 - Verify adding multiple products to the cart")
+    @Description("This test verifies that number of products added to the cart equals to expected")
     public void test01_verifyAddingMultipleProducts() {
         // Click on the store button in the top menu
         UIActions.click(topMenu.btn_Store);

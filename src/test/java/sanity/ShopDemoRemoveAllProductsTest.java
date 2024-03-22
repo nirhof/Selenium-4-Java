@@ -2,6 +2,7 @@ package sanity;
 
 import extensions.UIActions;
 import extensions.Verifications;
+import io.qameta.allure.Description;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
@@ -11,9 +12,10 @@ import workflows.Webflows;
 @Listeners(utilities.Listeners.class)
 public class ShopDemoRemoveAllProductsTest extends CommonOps {
 
-    // Test to verify removal of products from the cart
-    @Test
-    public void test01_verifyRemovalOfProductsFromCart() throws Exception {
+    // Test to verify removal of all products from the cart
+    @Test(description = "Test01 - Verify removal of all products from the cart")
+    @Description("This test verifies the functionality of removing all products from the cart.")
+    public void test01_verifyRemovalOfAllProductsFromCart() throws Exception {
         // Click on the store button in the top menu
         UIActions.click(topMenu.btn_Store);
 

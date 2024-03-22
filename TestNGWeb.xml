@@ -4,17 +4,17 @@
     <test name="Web Tests">
         <parameter name="PlatformName" value="web"></parameter>
         <classes>
-            <class name="sanity.ShopDemoAddOutOfStockProduct">
-                <methods>
-                    <include name="test01_verifyAddingOutOfStockProduct()"></include>
-                </methods>
-            </class>
-<!--            <class name="sanity.ShopDemo" />-->
-<!--            <class name="sanity.ShopDemoAddProductTest" />-->
-<!--            <class name="sanity.ShopDemoRemoveAllProductsTest" />-->
-<!--            <class name="sanity.ShopDemoRemoveProductsTest" />-->
-<!--            <class name="sanity.ShopDemoPerformanceTesting" />-->
-
+<!--            <class name="sanity.ShopDemoAddOutOfStockProduct">-->
+<!--                <methods>-->
+<!--                    <include name="test01_verifyAddingOutOfStockProduct()"></include>-->
+<!--                </methods>-->
+<!--            </class>-->
+            <class name="sanity.ShopDemo" />
+            <class name="sanity.ShopDemoAddProductTest" />
+            <class name="sanity.ShopDemoRemoveAllProductsTest" />
+            <class name="sanity.ShopDemoRemoveProductsTest" />
+            <class name="sanity.ShopDemoPerformanceTesting" />
+            <class name="sanity.ShopDemoAddOutOfStockProduct" />
         </classes>
     </test>
 </suite>
