@@ -2,8 +2,10 @@ package workflows;
 
 import extensions.UIActions;
 import io.qameta.allure.Step;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.sikuli.script.Key;
 import utilities.CommonOps;
 
 import java.util.List;
@@ -103,7 +105,7 @@ public class Webflows extends CommonOps {
     public static void addProductAndReturnToStore(int productIndex, String quantityValue) throws Exception {
         WebElement productElement = storePage.productsImages.get(productIndex);
         UIActions.click(productElement);
-        List<WebElement> outOfStockIndicator = products.outOfStockIndicator; // Get the current state of ProductRow
+        List<WebElement> outOfStockIndicator = products.outOfStockIndicator;
 
         if (outOfStockIndicator.size() > 0) {
             System.out.println("Product is out of stock. back to store");
@@ -121,7 +123,7 @@ public class Webflows extends CommonOps {
     public static void addProductAndReturnToStore(int productIndex) {
         WebElement productElement = storePage.productsImages.get(productIndex);
         UIActions.click(productElement);
-        List<WebElement> outOfStockIndicator = products.outOfStockIndicator; // Get the current state of ProductRow
+        List<WebElement> outOfStockIndicator = products.outOfStockIndicator;
 
         if (outOfStockIndicator.size() > 0) {
             System.out.println("Product is out of stock. back to store");
@@ -135,13 +137,21 @@ public class Webflows extends CommonOps {
     }
 
     @Step("business flow - checkout")
-    public static void checkout(String firstName, String lastName, String companyName, String postCode) {
+    public static void checkout(String firstName, String lastName,String companyName,String country,String streetName_HouseNumber,String apartment, String postCode, String city, String phone,String email,String orderNote) {
         UIActions.updateText(checoutPage.txt_first_name, firstName);
         UIActions.updateText(checoutPage.txt_last_name, lastName);
         UIActions.updateText(checoutPage.txt_company_name, companyName);
+        UIActions.click(checoutPage.txt_Country);
+        UIActions.updateText(checoutPage.txt_country_search, country);
+        UIActions.PressKey(checoutPage.txt_country_search, Keys.ENTER);
+        UIActions.updateText(checoutPage.txt_StreetName_HouseNumber, streetName_HouseNumber);
+        UIActions.updateText(checoutPage.txt_Apartment, apartment);
         UIActions.updateText(checoutPage.txt_postcode, postCode);
-        UIActions.updateText(checoutPage.txt_phone, "0546900242");
-        UIActions.updateText(checoutPage.txt_email, "nir108@gmail.com");
+        UIActions.updateText(checoutPage.txt_town_city, city);
+        UIActions.updateText(checoutPage.txt_phone, phone);
+        UIActions.updateText(checoutPage.txt_email, email);
+        UIActions.updateText(checoutPage.txt_OrderNote, orderNote);
+        UIActions.click(checoutPage.btn_placeOrder);
     }
 }
 

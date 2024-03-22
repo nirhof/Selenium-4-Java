@@ -121,7 +121,7 @@ public class ShopDemo extends CommonOps {
     // Test to verify that the search products element is located correctly
     @Test(description = "Test07 - Verify Search Products Element Location")
     @Description("This test verifies the location of the search products element")
-    public void test06_verifySearchProductsElementLocation() {
+    public void test07_verifySearchProductsElementLocation() {
         // Click the Store button in the top menu
         UIActions.click(topMenu.btn_Store);
 
@@ -129,22 +129,29 @@ public class ShopDemo extends CommonOps {
         Verifications.verifyElementOrientaion(storePage.txt_Search, 198, 43, 31, 168);
     }
 
-    // Test to verify checkout
-    @Test(description = "Test08 - Verify Checkout")
-    @Description("This test verifies the checkout process")
-    public void test07_verifyCheckout() throws Exception {
+    // Test to verify the checkout process and error message for an invalid payment method
+    @Test(description = "Test08 - Verify Checkout: Error Message for Invalid Payment Method")
+    @Description("This test verifies the checkout process and ensures that an error message appears if there are no available payment methods")
+    public void test08_verifyCheckout() throws Exception {
         // Click on the store button in the top menu
         UIActions.click(topMenu.btn_Store);
 
         // Sort the products by price from lowest to highest
         Webflows.SortProductsByPriceLowToHigh();
+
+        // Add multiple products to the cart
         Webflows.addProductAndReturnToStore(9);
+
+        // Hover over the cart menu and click on the checkout button
         UIActions.mouseHover(products.btn_CartMenu);
         UIActions.click(cartPage.btn_Checkout);
-        Webflows.checkout("Nir","Levi","Microsoft","123123");
-        // TODO
-    }
 
+        // Perform the checkout process with provided details
+        Webflows.checkout("Nir","Cohen","Microsoft","Israel","Hertzel 28","2","123457","Tel Aviv","0546900242","nirtest@gmail.com","add pizza cutter");
+
+        // Verify that an error message appears if there are no available payment methods
+        Verifications.verifyTextContainedInElement(checoutPage.message_error, "Invalid payment method.");
+    }
 
     // Method to execute after each test method
     @AfterMethod

@@ -38,6 +38,24 @@ public class UIActions extends CommonOps {
         return alertText;
     }
 
+    @Step("accepting Alert")
+    public static void acceptAlert() {
+        wait.until(ExpectedConditions.alertIsPresent());
+        Alert popup = driver.switchTo().alert();
+        String alertText = popup.getText();
+        System.out.println("Alert text is : " + alertText);
+        popup.accept();
+    }
+
+    @Step("dismiss Alert")
+    public static void dismissAlert() {
+        wait.until(ExpectedConditions.alertIsPresent());
+        Alert popup = driver.switchTo().alert();
+        String alertText = popup.getText();
+        System.out.println("Alert text is : " + alertText);
+        popup.dismiss();
+    }
+
     @Step("Update Text in Elements")
     public static void updateElementsText(List<WebElement> elements, String[] values) {
         if (elements.size() != values.length) {
