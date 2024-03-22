@@ -20,7 +20,7 @@ import java.util.List;
 @Listeners(utilities.Listeners.class)
 public class ShopDemo extends CommonOps {
 
-    // Test to verify the presence of a specific product
+    // Test to verify the search for a specific product
     @Test(description = "Test01 - Verify search for a specific product")
     @Description("This test verifies the search process of specific product")
     public void test01_verifySearchForSingleProduct() {
