@@ -19,4 +19,5 @@ public class StorePage {
     public WebElement combo_OrderByFilter;
     @FindBy(css = "span[class='woocommerce-Price-amount amount']")
     public List<WebElement> productsPrices;
+
 }

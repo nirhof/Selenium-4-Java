@@ -2,12 +2,10 @@ package workflows;
 
 import extensions.UIActions;
 import io.qameta.allure.Step;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import utilities.CommonOps;
 
-import java.time.Duration;
 import java.util.List;
 
 
@@ -95,7 +93,7 @@ public class Webflows extends CommonOps {
         return productSubtotalPrice + "0 ₪";
     }
 
-    @Step("business flow - choose quantity and add product tp the cart")
+    @Step("business flow - choose quantity and add product to the cart")
     public static void addProductWithQuantity(WebElement element, String quantityValue) {
         UIActions.updateText(element, quantityValue);
         UIActions.click(products.btn_AddToCart);
@@ -104,32 +102,36 @@ public class Webflows extends CommonOps {
     @Step("business flow - add product to the cart (choose product quantity)")
     public static void addProductAndReturnToStore(int productIndex, String quantityValue) throws Exception {
         WebElement productElement = storePage.productsImages.get(productIndex);
-        if (productElement.isDisplayed()) {
-            UIActions.click(productElement);
+        UIActions.click(productElement);
+        List<WebElement> outOfStockIndicator = products.outOfStockIndicator; // Get the current state of ProductRow
+
+        if (outOfStockIndicator.size() > 0) {
+            System.out.println("Product out of stock. back to store");
+            driver.navigate().back();
+        } else {
             UIActions.updateText(products.txt_productQuantity, quantityValue);
             UIActions.click(products.btn_AddToCart);
+            // Navigate back to store
+            driver.navigate().back();
+            driver.navigate().back();
         }
-        else
-        {
-            throw new NoSuchElementException("Product is out of stock or not available.");
-        }
-        driver.navigate().back();
-        driver.navigate().back();
-
     }
 
     @Step("business flow - add product to the cart - default quantity")
     public static void addProductAndReturnToStore(int productIndex) {
         WebElement productElement = storePage.productsImages.get(productIndex);
-        if (productElement.isDisplayed()) {
-            UIActions.click(productElement);
-            UIActions.click(products.btn_AddToCart);
-        } else {
-            throw new NoSuchElementException("Product is out of stock or not available.");
-        }
-        driver.navigate().back();
-        driver.navigate().back();
+        UIActions.click(productElement);
+        List<WebElement> outOfStockIndicator = products.outOfStockIndicator; // Get the current state of ProductRow
 
+        if (outOfStockIndicator.size() > 0) {
+            System.out.println("Product out of stock. back to store");
+            driver.navigate().back();
+        } else {
+            UIActions.click(products.btn_AddToCart);
+            // Navigate back to store
+            driver.navigate().back();
+            driver.navigate().back();
+        }
     }
 
     @Step("business flow - checkout")

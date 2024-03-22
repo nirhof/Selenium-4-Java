@@ -22,4 +22,7 @@ public class Products {
     @FindBy(css = "input[type='number']")
     public WebElement txt_productQuantity;
 
+    @FindBy(css = "p[class='stock out-of-stock'")
+    public List <WebElement> outOfStockIndicator;
+
 }

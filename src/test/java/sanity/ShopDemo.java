@@ -33,7 +33,7 @@ public class ShopDemo extends CommonOps {
     // Test to search for a keyword and validate the number of products in the results
     @Test(description = "Test02 - Verify number of searched products", dataProvider = "data-provider", dataProviderClass = utilities.ManageDDT.class)
     @Description("This test verifies the number of searched products in the product page")
-    public void test01_verifyNumberOfSearchedProducts(String searchKey, String numberOfProducts) {
+    public void test02_verifyNumberOfSearchedProducts(String searchKey, String numberOfProducts) {
         UIActions.click(topMenu.btn_Store); // Click on the store button in the top menu
         Webflows.searchForProduct(searchKey); // Search for the keyword in the store
         int expectedResult = Integer.parseInt(numberOfProducts);
