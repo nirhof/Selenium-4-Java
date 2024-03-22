@@ -46,7 +46,7 @@ public class ShopDemo extends CommonOps {
     // Test to verify the product image
     @Test(description = "Test04 - Verify product Image")
     @Description("This test verifies the presence of product image")
-    public void test03_verifyAnchorBraceletImage() {
+    public void test03_verifyProductImage() {
         UIActions.click(topMenu.btn_Store); // Click on the store button in the top menu
         WebElement anchorBraceletImage = storePage.productsImages.get(5); // Get the anchor bracelet image element
         screenShot.createElementScreenShot(anchorBraceletImage, "anchorBraceletImage"); // Take a screenshot of the anchor bracelet image
