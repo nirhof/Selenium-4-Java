@@ -20,27 +20,26 @@ import java.util.List;
 @Listeners(utilities.Listeners.class)
 public class ShopDemo extends CommonOps {
 
-    // Test to verify the number of shoe products
-    @Test(description = "Test01 - Verify search for a product")
-    @Description("This test verify the name of a product in the search process")
+    // Test to verify the presence of a specific product
+    @Test(description = "Test01 - Verify search for a specific product")
+    @Description("This test verifies the search process of specific product")
     public void test01_verifySearchForSingleProduct() {
         String productName = "Anchor Bracelet";
-        UIActions.click(topMenu.btn_Store); // Click on the store button in the top menu
-        Webflows.searchForProduct(productName); // Search for product in the store
-        Verifications.verifyTextInElement(products.txt_productName,productName); // Verify the name of product
+        UIActions.click(topMenu.btn_Store); // Clicks on the store button in the top menu
+        Webflows.searchForProduct(productName); // Initiates a search for the specified product in the store
+        Verifications.verifyTextInElement(products.txt_productName, productName); // Verifies the name of the product
     }
 
     // Test to search for a keyword and validate the number of products in the results
-    @Test(description = "Test02 - Verify number of searched products", dataProvider = "data-provider", dataProviderClass = utilities.ManageDDT.class)
-    @Description("This test verifies the number of searched products in the product page")
+    @Test(description = "Test02 - Verify search for a keyword and validate the number of products in the results", dataProvider = "data-provider", dataProviderClass = utilities.ManageDDT.class)
+    @Description("This test verifies the number of products obtained after searching for a keyword.")
     public void test02_verifyNumberOfSearchedProducts(String searchKey, String numberOfProducts) {
-        UIActions.click(topMenu.btn_Store); // Click on the store button in the top menu
-        Webflows.searchForProduct(searchKey); // Search for the keyword in the store
+        UIActions.click(topMenu.btn_Store); // Clicks on the store button in the top menu
+        Webflows.searchForProduct(searchKey); // Searches for the keyword in the store
         int expectedResult = Integer.parseInt(numberOfProducts);
-        Verifications.numberOfElements(storePage.products, expectedResult); // Verify that the number of products is equal to the expected value
+        Verifications.numberOfElements(storePage.products, expectedResult); // Verifies that the number of products matches the expected value
     }
-
-    // Test to verify the presence of the "About Atid Store - Who We Are" text
+    // Test to verify the text of the "About Atid Store - Who We Are"
     @Test(description = "Test03 - Verify About Atid Text")
     @Description("This test verifies the text of the 'About Atid Store - Who We Are'")
     public void test02_verifyAboutAtidText() {
@@ -49,9 +48,9 @@ public class ShopDemo extends CommonOps {
         Verifications.verifyTextInElement(aboutPage.description.get(0), whoWeAreText); // Verify the text in the About page description
     }
 
-    // Test to verify the anchor bracelet image
-    @Test(description = "Test04 - Verify Anchor Bracelet Image")
-    @Description("This test verifies the presence of the anchor bracelet image")
+    // Test to verify the product image
+    @Test(description = "Test04 - Verify product Image")
+    @Description("This test verifies the presence of product image")
     public void test03_verifyAnchorBraceletImage() {
         UIActions.click(topMenu.btn_Store); // Click on the store button in the top menu
         WebElement anchorBraceletImage = storePage.productsImages.get(5); // Get the anchor bracelet image element
