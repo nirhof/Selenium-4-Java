@@ -21,7 +21,7 @@ public class ShopDemoAddOutOfStockProduct extends CommonOps {
         // Click on the store button in the top menu
         UIActions.click(topMenu.btn_Store);
 
-        // Sort the products by the latest price
+        // Sort the products by the latest added to store
         Webflows.SortProductsByLatest();
 
         // Add an out-of-stock product and return to the store page
