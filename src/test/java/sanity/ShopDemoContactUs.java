@@ -12,7 +12,6 @@ import workflows.Webflows;
 @Listeners(utilities.Listeners.class)
 public class ShopDemoContactUs extends CommonOps {
 
-    // Test to verify removal of products from the cart
     @Test(description = "Test01 - open new tab of contact page and verify title")
     @Description("This test open new tab of contact page and verify the page title")
     public void test01_verifyContactUsPageTitle() {
