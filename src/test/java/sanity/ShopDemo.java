@@ -63,7 +63,7 @@ public class ShopDemo extends CommonOps {
         Verifications.verifyTextContainedInElement(HighestPriceProduct, "250.00 "); // Verify that the highest price product contains the expected price
     }
 
-    // Test to verify a product added to the cart
+    // Test to verify a product added to the cart and verify the product details
     @Test(description = "Test06 - Verify Details Of Product Added To Cart")
     @Description("This test verifies the details of a product added to the cart")
     public void test05_verifyDetailsOfProductAddedToCart() throws Exception {
@@ -86,10 +86,9 @@ public class ShopDemo extends CommonOps {
         Webflows.addProductWithQuantity(productQuantity_txt, quantityValue);
 
         // go to cart page
-        // verify the product details in cart page
         UIActions.mouseHover(products.btn_CartMenu);
 
-        // Define the list of elements representing the row
+        // Get the product details in cart page and define the list actual product details : product name, product price, quantity, product subtotal price
         List<WebElement> actualProdcutDetails = Arrays.asList(
                 cartPage.txt_ProductName.get(0),
                 cartPage.txt_ProductPrice.get(0),
@@ -99,7 +98,7 @@ public class ShopDemo extends CommonOps {
 
         String expectedProductSubtotalPriceString = Webflows.getSubTotalPrice(expectedProductPrice, quantityValue);
 
-        // Define the list of expected values for each element
+        // Define the list expected product details : product name, product price, quantity, product subtotal price
         List<String> expectedValues = Arrays.asList(
                 expectedProductName, // expected product name
                 expectedProductPrice,         // expected product price
