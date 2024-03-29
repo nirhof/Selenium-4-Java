@@ -18,7 +18,7 @@ public class ShopDemoContactUs extends CommonOps {
 
         //open new Tab and switch to it
         tabsWindowsHandler.openAndSwitchNewTab("https://atid.store/contact-us/");
-        // Verify the title of the contact page
+        // Verify the title of the contact us page
         Verifications.verifyTitle("Contact Us – ATID Demo Store");
     }
 
