@@ -37,7 +37,7 @@ public class ShopDemo extends CommonOps {
     // Test to verify the text of the "About Atid Store - Who We Are"
     @Test(description = "Test03 - Verify About Atid Text")
     @Description("This test verifies the text of the 'About Atid Store - Who We Are'")
-    public void test02_verifyAboutAtidText() {
+    public void test03_verifyAboutAtidText() {
         UIActions.click(topMenu.btn_About); // Click on the About button in the top menu
         String whoWeAreText = "ATID Demo Store was created by ATID College dedicated employees. This is a complete demo site for practicing QA & Test Automation methodologies. Don't think for a second you can actually buy here something cause you can't ! This Demo Store contains software bugs which were put intentionally and your job is to locate them Good luck folks, Yoni Flenner - ATID College";
         Verifications.verifyTextInElement(aboutPage.description.get(0), whoWeAreText); // Verify the text in the About page description
@@ -46,7 +46,7 @@ public class ShopDemo extends CommonOps {
     // Test to verify the product image
     @Test(description = "Test04 - Verify product Image")
     @Description("This test verifies the presence of product image")
-    public void test03_verifyProductImage() {
+    public void test04_verifyProductImage() {
         UIActions.click(topMenu.btn_Store); // Click on the store button in the top menu
         WebElement anchorBraceletImage = storePage.productsImages.get(0); // Get the product image element
         screenShot.createElementScreenShot(anchorBraceletImage, "anchorBraceletImage"); // Take a screenshot of the product image
@@ -56,7 +56,7 @@ public class ShopDemo extends CommonOps {
     // Test to verify the highest product price
     @Test(description = "Test05 - Verify Highest Product Price")
     @Description("This test verifies the highest product price")
-    public void test04_verifyHighestProductPrice() {
+    public void test05_verifyHighestProductPrice() {
         UIActions.click(topMenu.btn_Store); // Click on the store button in the top menu
         Webflows.SortProductsByPriceHighToLow(); // Sort the products by price from highest to lowest
         WebElement HighestPriceProduct = storePage.productsPrices.get(9); // Get the highest priced product element
@@ -66,7 +66,7 @@ public class ShopDemo extends CommonOps {
     // Test to verify a product added to the cart and verify the product details
     @Test(description = "Test06 - Verify Details Of Product Added To Cart")
     @Description("This test verifies the details of a product added to the cart")
-    public void test05_verifyDetailsOfProductAddedToCart() throws Exception {
+    public void test06_verifyDetailsOfProductAddedToCart() throws Exception {
         // Click on the store button in the top menu
         UIActions.click(topMenu.btn_Store);
 
