@@ -55,5 +55,12 @@ public class CheckoutPage {
     @FindBy(css = "input[id='billing_state']")
     public  WebElement txt_state;
 
+    @FindBy(css = "td[class='product-name']")
+    public  WebElement txt_productName;
+
+    @FindBy(css = " h1[class='elementor-heading-title elementor-size-default']")
+    public  WebElement title_Checkout;
+
+
 }
 

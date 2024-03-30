@@ -138,20 +138,36 @@ public class Webflows extends CommonOps {
 
     @Step("business flow - checkout")
     public static void checkout(String firstName, String lastName,String companyName,String country,String streetName_HouseNumber,String apartment, String postCode, String city, String phone,String email,String orderNote) {
-        UIActions.updateText(checoutPage.txt_first_name, firstName);
-        UIActions.updateText(checoutPage.txt_last_name, lastName);
-        UIActions.updateText(checoutPage.txt_company_name, companyName);
-        UIActions.click(checoutPage.txt_Country);
-        UIActions.updateText(checoutPage.txt_country_search, country);
-        UIActions.PressKey(checoutPage.txt_country_search, Keys.ENTER);
-        UIActions.updateText(checoutPage.txt_StreetName_HouseNumber, streetName_HouseNumber);
-        UIActions.updateText(checoutPage.txt_Apartment, apartment);
-        UIActions.updateText(checoutPage.txt_postcode, postCode);
-        UIActions.updateText(checoutPage.txt_town_city, city);
-        UIActions.updateText(checoutPage.txt_phone, phone);
-        UIActions.updateText(checoutPage.txt_email, email);
-        UIActions.updateText(checoutPage.txt_OrderNote, orderNote);
-        UIActions.click(checoutPage.btn_placeOrder);
+        UIActions.updateText(checkoutPage.txt_first_name, firstName);
+        UIActions.updateText(checkoutPage.txt_last_name, lastName);
+        UIActions.updateText(checkoutPage.txt_company_name, companyName);
+        UIActions.click(checkoutPage.txt_Country);
+        UIActions.updateText(checkoutPage.txt_country_search, country);
+        UIActions.PressKey(checkoutPage.txt_country_search, Keys.ENTER);
+        UIActions.updateText(checkoutPage.txt_StreetName_HouseNumber, streetName_HouseNumber);
+        UIActions.updateText(checkoutPage.txt_Apartment, apartment);
+        UIActions.updateText(checkoutPage.txt_postcode, postCode);
+        UIActions.updateText(checkoutPage.txt_town_city, city);
+        UIActions.updateText(checkoutPage.txt_phone, phone);
+        UIActions.updateText(checkoutPage.txt_email, email);
+        UIActions.updateText(checkoutPage.txt_OrderNote, orderNote);
+        UIActions.click(checkoutPage.btn_placeOrder);
+    }
+
+    @Step("business flow - navigate to checkout page")
+    public static void navigateCheckoutPage() throws Exception {
+        UIActions.mouseHoverWithoutClick(topMenu.btn_Cart_MenuContainer);
+        List<WebElement> cartEmptyIndicator = topMenu.cartEmptyIndicator;
+
+        if (cartEmptyIndicator.size() > 0) {
+            System.out.println("cart is empty");
+            throw new Exception("cart cant be empty when trying to checkout");
+        }
+        else
+        {
+            // Navigate to checkout page
+            UIActions.mouseHover(topMenu.btn_Checkout);
+        }
     }
 }
 

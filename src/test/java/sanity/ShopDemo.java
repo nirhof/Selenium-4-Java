@@ -9,6 +9,7 @@ import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import utilities.CommonOps;
 import workflows.Webflows;
+
 import java.util.Arrays;
 import java.util.List;
 
@@ -34,6 +35,7 @@ public class ShopDemo extends CommonOps {
         int expectedResult = Integer.parseInt(numberOfProducts);
         Verifications.numberOfElements(storePage.products, expectedResult); // Verifies that the number of products matches the expected value
     }
+
     // Test to verify the text of the "About Atid Store - Who We Are"
     @Test(description = "Test03 - Verify About Atid Text")
     @Description("This test verifies the text of the 'About Atid Store - Who We Are'")
@@ -125,7 +127,7 @@ public class ShopDemo extends CommonOps {
     // Test to verify the checkout process and error message for an invalid payment method
     @Test(description = "Test08 - Verify Checkout: Error Message for Invalid Payment Method")
     @Description("This test verifies the checkout process and ensures that an error message appears if there are no available payment methods")
-    public void test08_verifyCheckout() throws Exception {
+    public void test08_verifyCheckoutProcess() throws Exception {
         // Click on the store button in the top menu
         UIActions.click(topMenu.btn_Store);
 
@@ -140,10 +142,28 @@ public class ShopDemo extends CommonOps {
         UIActions.click(cartPage.btn_Checkout);
 
         // Perform the checkout process with provided details
-        Webflows.checkout("Nir","Cohen","Microsoft","Israel","Hertzel 28","2","123457","Tel Aviv","0546900242","nirtest@gmail.com","add pizza cutter");
+        Webflows.checkout("Nir", "Cohen", "Microsoft", "Israel", "Hertzel 28", "2", "123457", "Tel Aviv", "0546900242", "nirtest@gmail.com", "add pizza cutter");
 
         // Verify that an error message appears if there are no available payment methods
-        Verifications.verifyTextContainedInElement(checoutPage.message_error, "Invalid payment method.");
+        Verifications.verifyTextContainedInElement(checkoutPage.message_error, "Invalid payment method.");
+    }
+
+    @Test(description = "Test09 - Verify navigate to checkout page")
+    @Description("This test verifies navigating to checkout page after adding a product to the cart")
+    public void test09_verifyNavigateCheckout() throws Exception {
+        // Click on the store button in the top menu
+        UIActions.click(topMenu.btn_Store);
+
+        // Sort the products by price from lowest to highest
+        Webflows.SortProductsByPriceLowToHigh();
+
+        // Add product to the cart
+        Webflows.addProductAndReturnToStore(0);
+
+        Webflows.navigateCheckoutPage();
+
+        Verifications.verifyTextInElement(checkoutPage.title_Checkout, "Checkout");
+
     }
 
     // Method to execute after each test method

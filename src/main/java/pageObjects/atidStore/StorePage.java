@@ -19,5 +19,7 @@ public class StorePage {
     public WebElement combo_OrderByFilter;
     @FindBy(css = "span[class='woocommerce-Price-amount amount']")
     public List<WebElement> productsPrices;
+    @FindBy(css = "div[class='astra-shop-summary-wrap'] > a > h2")
+    public List<WebElement> productsNames;
 
 }

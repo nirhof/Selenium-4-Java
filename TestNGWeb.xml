@@ -4,19 +4,20 @@
     <test name="Web Tests">
         <parameter name="PlatformName" value="web"></parameter>
         <classes>
-<!--            <class name="sanity.ShopDemoContactUs">-->
-<!--                <methods>-->
-<!--                    <include name="test01_verifyContactUsPageTitle()"></include>-->
-<!--                </methods>-->
-<!--            </class>-->
+            <class name="sanity.ShopDemo">
+                <methods>
+                    <include name="test09_verifyCheckout()"></include>
+                </methods>
+            </class>
 
-                        <class name="sanity.ShopDemo" />
-                        <class name="sanity.ShopDemoAddProductTest" />
-                        <class name="sanity.ShopDemoRemoveAllProductsTest" />
-                        <class name="sanity.ShopDemoRemoveProductsTest" />
-                        <class name="sanity.ShopDemoPerformanceTesting" />
-                        <class name="sanity.ShopDemoAddOutOfStockProduct" />
-                        <class name="sanity.ShopDemoContactUs"/>
+<!--                        <class name="sanity.ShopDemo" />-->
+<!--                        <class name="sanity.ShopDemoAddProductTest" />-->
+<!--                        <class name="sanity.ShopDemoRemoveAllProductsTest" />-->
+<!--                        <class name="sanity.ShopDemoRemoveProductsTest" />-->
+<!--                        <class name="sanity.ShopDemoPerformanceTesting" />-->
+<!--                        <class name="sanity.ShopDemoAddOutOfStockProduct" />-->
+<!--                        <class name="sanity.ShopDemoContactUs"/>-->
+
         </classes>
 
     </test>
