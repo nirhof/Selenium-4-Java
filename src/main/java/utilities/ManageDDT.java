@@ -53,7 +53,7 @@ public class ManageDDT extends CommonOps {
         Object[][] data = new Object[numRows][numCols];
 
         for (int i = 0; i < numRows; i++) {
-            // Split each line of CSV data using the delimiter ",,," and assign to respective elements in the 2D array
+            // Split each line of CSV data using the delimiter "," and assign to respective elements in the 2D array
             String[] rowData = csvData.get(i).split(",");
             for (int j = 0; j < numCols; j++) {
                 data[i][j] = rowData[j];
