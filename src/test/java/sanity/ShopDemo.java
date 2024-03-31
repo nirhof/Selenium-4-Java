@@ -9,7 +9,6 @@ import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import utilities.CommonOps;
 import workflows.Webflows;
-
 import java.util.Arrays;
 import java.util.List;
 
@@ -17,17 +16,17 @@ import java.util.List;
 public class ShopDemo extends CommonOps {
 
     // Test to verify the search for a specific product
-    @Test(description = "Test01 - Verify search for a specific product")
+    @Test(description = "Test01 - Verify search for a specific product",dataProvider = "specificProductData", dataProviderClass = utilities.ManageDDT.class)
     @Description("This test verifies the search process of specific product")
-    public void test01_verifySearchForSpecificProduct() {
-        String productName = "Anchor Bracelet";
+    public void test01_verifySearchForSpecificProduct(String productName, String expectedProductName) {
+
         UIActions.click(topMenu.btn_Store); // Clicks on the store button in the top menu
         Webflows.searchForProduct(productName); // Initiates a search for the specified product in the store
-        Verifications.verifyTextInElement(products.txt_productName, productName); // Verifies the name of the product
+        Verifications.verifyTextInElement(products.txt_productName, expectedProductName); // Verifies the name of the product
     }
 
     // Test to search for a keyword and validate the number of products in the results
-    @Test(description = "Test02 - Verify search for a keyword and validate the number of products in the results", dataProvider = "data-provider", dataProviderClass = utilities.ManageDDT.class)
+    @Test(description = "Test02 - Verify search for a keyword and validate the number of products in the results", dataProvider = "searchKeywordData", dataProviderClass = utilities.ManageDDT.class)
     @Description("This test verifies the number of products obtained after searching for a keyword.")
     public void test02_SearchForKeywordAndVerifyProductsCount(String searchKey, String numberOfProducts) {
         UIActions.click(topMenu.btn_Store); // Clicks on the store button in the top menu

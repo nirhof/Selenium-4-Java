@@ -13,12 +13,20 @@ public class ManageDDT extends CommonOps {
     // Method Name : getDataObject
     // Method Description: DataProvider method that retrieves test data from a CSV file.
     // Returns a 2D array containing test data.
-    @DataProvider(name = "data-provider")
-    public Object[][] getDataObject() {
+    @DataProvider(name = "specificProductData")
+    public Object[][] getSpecificProductData() {
 
         // Calls a method to retrieve data from a CSV file and return it as a 2D array
-        return getDataFromCSV(getData("DDTFile"));
+        return getDataFromCSV(getData("SpecificProductDataFile"));
     }
+
+    @DataProvider(name = "searchKeywordData")
+    public Object[][] getSearchKeywordData() {
+
+        // Calls a method to retrieve data from a CSV file and return it as a 2D array
+        return getDataFromCSV(getData("SearchKeywordDataFile"));
+    }
+
 
 
     // Method Name : readCSV
