@@ -61,7 +61,7 @@ public class ShopDemo extends CommonOps {
         UIActions.click(topMenu.btn_Store); // Click on the store button in the top menu
         Webflows.SortProductsByPriceHighToLow(); // Sort the products by price from highest to lowest
         WebElement HighestPriceProduct = storePage.productsPrices.get(9); // Get the highest priced product element
-        Verifications.verifyTextContainedInElement(HighestPriceProduct, "250.00 "); // Verify that the highest price product contains the expected price
+        Verifications.verifyTextContainedInElement(HighestPriceProduct, "260.00 "); // Verify that the highest price product contains the expected price
     }
 
     // Test to verify a product added to the cart and verify the product details
