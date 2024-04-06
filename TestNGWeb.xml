@@ -10,13 +10,14 @@
 <!--                </methods>-->
 <!--            </class>-->
 
-<!--                        <class name="sanity.ShopDemo" />-->
-<!--                        <class name="sanity.ShopDemoAddProductTest" />-->
-<!--                        <class name="sanity.ShopDemoRemoveAllProductsTest" />-->
-<!--                        <class name="sanity.ShopDemoRemoveProductsTest" />-->
-<!--                        <class name="sanity.ShopDemoPerformanceTesting" />-->
-<!--                        <class name="sanity.ShopDemoAddOutOfStockProduct" />-->
-                        <class name="sanity.ShopDemoContactUs"/>
+            <class name="sanity.ShopDemo"/>
+            <class name="sanity.ShopDemoAddProductTest"/>
+            <class name="sanity.ShopDemoRemoveAllProductsTest"/>
+            <class name="sanity.ShopDemoRemoveProductsTest"/>
+            <class name="sanity.ShopDemoPerformanceTesting"/>
+            <class name="sanity.ShopDemoAddOutOfStockProduct"/>
+            <class name="sanity.ShopDemoContactUs"/>
+            <class name="sanity.ShopDemoCheckout"/>
 
 
         </classes>
