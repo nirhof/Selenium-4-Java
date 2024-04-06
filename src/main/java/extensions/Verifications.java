@@ -31,6 +31,15 @@ public class Verifications extends CommonOps {
         assertEquals(element.getText(), expectedText);
     }
 
+    @Step("Verify text in element")
+    public static void verifyValueInElement(WebElement element, String expectedText) {
+        wait.until(ExpectedConditions.visibilityOf(element));
+
+        System.out.println("actual text is " + element.getAttribute("value"));
+        System.out.println("expected text is " + expectedText);
+        assertEquals(element.getAttribute("value"), expectedText);
+    }
+
     @Step("Verify details of the row")
     public static void verifyRowDetails(List<WebElement> rowElements, List<String> expectedValues) {
         if (rowElements.size() != expectedValues.size()) {

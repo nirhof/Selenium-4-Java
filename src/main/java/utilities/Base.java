@@ -55,8 +55,9 @@ public class Base {
     protected static pageObjects.atidStore.AboutPage aboutPage;
     protected static pageObjects.atidStore.Products products;
     protected static pageObjects.atidStore.CartPage cartPage;
-
     protected static pageObjects.atidStore.CheckoutPage checkoutPage;
+    protected static pageObjects.atidStore.ContactUsPage contactUsPage;
+
 
 
 }

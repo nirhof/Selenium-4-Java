@@ -169,5 +169,14 @@ public class Webflows extends CommonOps {
             UIActions.mouseHover(topMenu.btn_Checkout);
         }
     }
+
+    @Step("business flow - send message via contact us page to Atid store")
+    public static void sendMessage(String name, String subject,String email,String message) {
+        UIActions.updateText(contactUsPage.txt_Name,name);
+        UIActions.updateText(contactUsPage.txt_Subject,subject);
+        UIActions.updateText(contactUsPage.txt_Email,email);
+        UIActions.updateText(contactUsPage.txt_Message,message);
+        UIActions.click(contactUsPage.btn_sendMessage);
+    }
 }
 

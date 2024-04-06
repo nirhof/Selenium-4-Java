@@ -50,4 +50,12 @@ public class TabsWindowsHandler {
         // Close the window
         driver.close();
     }
+
+    // Method to switch to a tab or window by index
+    public void switchTabWindow(int index) {
+        // Get all window handles into an ArrayList
+        ArrayList<String> tabWindow = new ArrayList<>(driver.getWindowHandles());
+        // Switch to the window handle at the given index
+        driver.switchTo().window(tabWindow.get(index));
+    }
 }

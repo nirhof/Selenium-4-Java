@@ -17,6 +17,8 @@ public class ManagePages extends Base {
         products = PageFactory.initElements(driver, pageObjects.atidStore.Products.class);
         cartPage = PageFactory.initElements(driver, pageObjects.atidStore.CartPage.class);
         checkoutPage = PageFactory.initElements(driver, pageObjects.atidStore.CheckoutPage.class);
+        contactUsPage = PageFactory.initElements(driver, pageObjects.atidStore.ContactUsPage.class);
+
 
     }
 }
