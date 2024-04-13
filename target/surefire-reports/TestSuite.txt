@@ -1,0 +1,12 @@
+-------------------------------------------------------------------------------
+Test set: TestSuite
+-------------------------------------------------------------------------------
+Tests run: 9, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 119.098 s <<< FAILURE! - in TestSuite
+test03_verifyAboutAtidText(sanity.ShopDemo)  Time elapsed: 1.272 s  <<< FAILURE!
+java.lang.AssertionError: expected [ATID Demo Store was created by ATID College dedicated employees. This is a complete demo site for practicing QA & Test Automation methodologies. Don't think for a second you can actually buy here something cause you can't ! This Demo Store contains software bugs which were put intentionally and your job is to locate them Good luck folks, Yoni Flenner - ATID College] but found [ATID Demo Store was created by ATID College dedicated employees. This is a complete demo site for practicing QA & Test Automation methodologies. Don't think for a second you can actually buy here something cause you can't ! This Demo Store contains software bugs which were put intentionally and your job is to locate them Good luck falks, Yoni Flenner - ATID College]
+	at sanity.ShopDemo.test03_verifyAboutAtidText(ShopDemo.java:44)
+
+test05_verifyHighestProductPrice(sanity.ShopDemo)  Time elapsed: 2.242 s  <<< FAILURE!
+java.lang.AssertionError: expected [true] but found [false]
+	at sanity.ShopDemo.test05_verifyHighestProductPrice(ShopDemo.java:64)
+

@@ -90,7 +90,7 @@ public class Listeners extends CommonOps implements ITestListener {
     public void onTestFailure(ITestResult test) {
         if (!platform.equalsIgnoreCase("api")) {
 
-            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
+//            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
             System.out.println("------------ Test: " + test.getName() + " Failed ------------");
 
             // Stop Monte Test recording
@@ -110,8 +110,7 @@ public class Listeners extends CommonOps implements ITestListener {
 
     // Method Name: saveScreenshot
     // Method Description: This method captures a screenshot of the current page.
-    // If the platform is not mobile, it uses the 'driver' object to capture the screenshot.
-    // If the platform is mobile, it uses the 'mobileDriver' object to capture the screenshot.
+    // it uses the 'driver' object to capture the screenshot.
     // Return Value: A byte representing the screenshot in PNG format.
     @Attachment(value = "Page Screen-Shot", type = "image/png")
     public byte[] saveScreenshot() {

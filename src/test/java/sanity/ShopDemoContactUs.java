@@ -13,7 +13,6 @@ import workflows.Webflows;
 import java.util.Arrays;
 import java.util.List;
 
-@Listeners(utilities.Listeners.class)
 public class ShopDemoContactUs extends CommonOps {
 
     @Test(description = "Test01 - open new tab of contact page and verify title")

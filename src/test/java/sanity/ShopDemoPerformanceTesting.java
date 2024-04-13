@@ -10,7 +10,6 @@ import utilities.CommonOps;
 import utilities.PerformanceMetric;
 import workflows.Webflows;
 
-@Listeners(utilities.Listeners.class)
 public class ShopDemoPerformanceTesting extends CommonOps {
 
 

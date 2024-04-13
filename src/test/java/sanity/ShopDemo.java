@@ -12,7 +12,7 @@ import workflows.Webflows;
 import java.util.Arrays;
 import java.util.List;
 
-@Listeners(utilities.Listeners.class)
+
 public class ShopDemo extends CommonOps {
 
     // Test to verify the search for a specific product

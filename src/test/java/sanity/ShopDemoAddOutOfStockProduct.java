@@ -11,7 +11,6 @@ import workflows.Webflows;
 
 
 
-@Listeners(utilities.Listeners.class)
 public class ShopDemoAddOutOfStockProduct extends CommonOps {
 
     // Test to verify adding an out-of-stock product doesn't add it to the cart

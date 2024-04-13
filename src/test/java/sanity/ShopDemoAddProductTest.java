@@ -9,7 +9,6 @@ import org.testng.annotations.Test;
 import utilities.CommonOps;
 import workflows.Webflows;
 
-@Listeners(utilities.Listeners.class)
 public class ShopDemoAddProductTest extends CommonOps {
 
     // Test to verify adding a number of products equals the expected count

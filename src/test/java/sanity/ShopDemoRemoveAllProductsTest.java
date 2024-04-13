@@ -9,7 +9,6 @@ import org.testng.annotations.Test;
 import utilities.CommonOps;
 import workflows.Webflows;
 
-@Listeners(utilities.Listeners.class)
 public class ShopDemoRemoveAllProductsTest extends CommonOps {
 
     // Test to verify removal of all products from the cart

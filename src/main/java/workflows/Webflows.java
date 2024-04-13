@@ -24,7 +24,7 @@ public class Webflows extends CommonOps {
         UIActions.selectDropDownByValue(storePage.combo_OrderByFilter, "price");
     }
 
-    @Step("business flow - sort products by latest ")
+    @Step("business flow - sort products by latest")
     public static void SortProductsByLatest() {
         UIActions.selectDropDownByValue(storePage.combo_OrderByFilter, "date");
     }
