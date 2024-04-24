@@ -8,6 +8,13 @@ import java.util.List;
 public class AboutPage {
 
     @FindBy(className = "elementor-image-box-description")
-    public List<WebElement> description;
+    private List<WebElement> description;
+
+    // Getters
+
+    public List<WebElement> getDescription() {
+        return description;
+    }
+
 
 }

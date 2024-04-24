@@ -8,27 +8,60 @@ import java.util.List;
 public class CartPage {
 
     @FindBy(css = "td[class='product-subtotal']")
-    public List<WebElement> txt_ProductSubtotal;
+    private List<WebElement> txt_ProductSubtotal;
 
     @FindBy(css = "input[type='number']")
-    public  List<WebElement> txt_ProductQuantity;
+    private List<WebElement> txt_ProductQuantity;
 
     @FindBy(css = "td[class='product-price']")
-    public  List<WebElement> txt_ProductPrice;
+    private List<WebElement> txt_ProductPrice;
 
     @FindBy(css = "td[class='product-name']")
-    public  List<WebElement> txt_ProductName;
+    private List<WebElement> txt_ProductName;
 
     @FindBy(css = "tr[class='woocommerce-cart-form__cart-item cart_item']")
-    public  List<WebElement> ProductRow;
+    private List<WebElement> productRow;
 
     @FindBy(css = "a[class=remove]")
-    public  List<WebElement> btn_RemoveProduct;
+    private List<WebElement> btn_RemoveProduct;
 
     @FindBy(css = "div[class='cart-empty woocommerce-info']")
-    public  WebElement txt_cartEmpty;
+    private WebElement txt_cartEmpty;
 
     @FindBy(css = "a[class='checkout-button button alt wc-forward']")
-    public  WebElement btn_Checkout;
+    private WebElement btn_Checkout;
+
+    // Getters
+    public List<WebElement> getProductSubtotals() {
+        return txt_ProductSubtotal;
+    }
+
+    public List<WebElement> getProductQuantities() {
+        return txt_ProductQuantity;
+    }
+
+    public List<WebElement> getProductPrices() {
+        return txt_ProductPrice;
+    }
+
+    public List<WebElement> getProductNames() {
+        return txt_ProductName;
+    }
+
+    public List<WebElement> getProductRows() {
+        return productRow;
+    }
+
+    public List<WebElement> getRemoveProductButtons() {
+        return btn_RemoveProduct;
+    }
+
+    public WebElement getCartEmptyText() {
+        return txt_cartEmpty;
+    }
+
+    public WebElement getCheckoutButton() {
+        return btn_Checkout;
+    }
 }
 

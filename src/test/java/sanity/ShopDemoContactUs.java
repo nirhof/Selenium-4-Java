@@ -6,7 +6,6 @@ import io.qameta.allure.Description;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import utilities.CommonOps;
 import workflows.Webflows;
@@ -29,15 +28,15 @@ public class ShopDemoContactUs extends CommonOps {
         Webflows.sendMessage("kuku", "Hello", "kuku@gmail.com", "Atid college are the best");
 
         // Verify confirmation message
-        Verifications.verifyTextInElement(contactUsPage.txt_confirmationSent, "Thanks for contacting us! We will be in touch with you shortly.");
+        Verifications.verifyTextInElement(contactUsPage.getConfirmationSentText(), "Thanks for contacting us! We will be in touch with you shortly.");
     }
 
     @Test(description = "Test03 - Verify Atid Store Contact Details")
     @Description("This test verifies the accuracy of the contact details provided by Atid Store.")
     public void test03_verifyAtidStoreContactDetails() {
         // Retrieve actual store email and phone elements
-        WebElement actualStoreEmail = contactUsPage.txt_AtidContactDetails.get(0);
-        WebElement actualStorePhone = contactUsPage.txt_AtidContactDetails.get(1);
+        WebElement actualStoreEmail = contactUsPage.getAtidContactDetailsText().get(0);
+        WebElement actualStorePhone = contactUsPage.getAtidContactDetailsText().get(1);
 
         // Create a list of actual contact details
         List<WebElement> actualContactDetails = Arrays.asList(

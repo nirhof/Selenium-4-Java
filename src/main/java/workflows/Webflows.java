@@ -16,44 +16,44 @@ public class Webflows extends CommonOps {
 
     @Step("business flow - sort products by price Highest to Lowest")
     public static void SortProductsByPriceHighToLow() {
-        UIActions.selectDropDownByValue(storePage.combo_OrderByFilter, "price-desc");
+        UIActions.selectDropDownByValue(storePage.getOrderByFilterDropdown(), "price-desc");
     }
 
     @Step("business flow - sort products by price Lowest to Highest")
     public static void SortProductsByPriceLowToHigh() {
-        UIActions.selectDropDownByValue(storePage.combo_OrderByFilter, "price");
+        UIActions.selectDropDownByValue(storePage.getOrderByFilterDropdown(), "price");
     }
 
     @Step("business flow - sort products by latest")
     public static void SortProductsByLatest() {
-        UIActions.selectDropDownByValue(storePage.combo_OrderByFilter, "date");
+        UIActions.selectDropDownByValue(storePage.getOrderByFilterDropdown(), "date");
     }
 
     @Step("business flow - search for product")
     public static void searchForProduct(String text) {
-        UIActions.updateText(storePage.txt_Search, text);
-        UIActions.click(storePage.btn_Submit);
+        UIActions.updateText(storePage.getSearchTextBox(), text);
+        UIActions.click(storePage.getSubmitButton());
     }
 
     @Step("business flow - Remove all Items from cart")
     public static void RemoveAllItem(List<WebElement> products) {
         int length = products.size();
         for (int i = 0; i < length; i++) {
-            UIActions.click(cartPage.btn_RemoveProduct.get(0));
-            wait.until(ExpectedConditions.stalenessOf(cartPage.btn_RemoveProduct.get(0)));
+            UIActions.click(cartPage.getRemoveProductButtons().get(0));
+            wait.until(ExpectedConditions.stalenessOf(cartPage.getRemoveProductButtons().get(0)));
         }
     }
 
     // Method to remove item from cart
     @Step("business flow - Remove item from cart")
     public static void RemoveItem(int productNumber) {
-        List<WebElement> productRow = cartPage.ProductRow; // Get the current state of ProductRow
+        List<WebElement> productRow = cartPage.getProductRows(); // Get the current state of ProductRow
         int length = productRow.size();
         if (productNumber < 0 || productNumber >= length) {
             throw new IllegalArgumentException("Invalid product number. It should be within the range [0, " + (length - 1) + "]");
         }
-        UIActions.click(cartPage.btn_RemoveProduct.get(productNumber));
-        wait.until(ExpectedConditions.stalenessOf(cartPage.btn_RemoveProduct.get(productNumber)));
+        UIActions.click(cartPage.getRemoveProductButtons().get(productNumber));
+        wait.until(ExpectedConditions.stalenessOf(cartPage.getRemoveProductButtons().get(productNumber)));
     }
 
     @Step("business flow - get product price")
@@ -98,21 +98,21 @@ public class Webflows extends CommonOps {
     @Step("business flow - choose quantity and add product to the cart")
     public static void addProductWithQuantity(WebElement element, String quantityValue) {
         UIActions.updateText(element, quantityValue);
-        UIActions.click(products.btn_AddToCart);
+        UIActions.click(products.getAddToCartButton());
     }
 
     @Step("business flow - add product to the cart (choose product quantity)")
     public static void addProductAndReturnToStore(int productIndex, String quantityValue) throws Exception {
-        WebElement productElement = storePage.productsImages.get(productIndex);
+        WebElement productElement = storePage.getProductsImages().get(productIndex);
         UIActions.click(productElement);
-        List<WebElement> outOfStockIndicator = products.outOfStockIndicator;
+        List<WebElement> outOfStockIndicator = products.getOutOfStockIndicator();
 
         if (outOfStockIndicator.size() > 0) {
             System.out.println("Product is out of stock. back to store");
             driver.navigate().back();
         } else {
-            UIActions.updateText(products.txt_productQuantity, quantityValue);
-            UIActions.click(products.btn_AddToCart);
+            UIActions.updateText(products.getProductQuantityField(), quantityValue);
+            UIActions.click(products.getAddToCartButton());
             // Navigate back to store
             driver.navigate().back();
             driver.navigate().back();
@@ -121,15 +121,15 @@ public class Webflows extends CommonOps {
 
     @Step("business flow - add product to the cart - default quantity")
     public static void addProductAndReturnToStore(int productIndex) {
-        WebElement productElement = storePage.productsImages.get(productIndex);
+        WebElement productElement = storePage.getProductsImages().get(productIndex);
         UIActions.click(productElement);
-        List<WebElement> outOfStockIndicator = products.outOfStockIndicator;
+        List<WebElement> outOfStockIndicator = products.getOutOfStockIndicator();
 
         if (outOfStockIndicator.size() > 0) {
             System.out.println("Product is out of stock. back to store");
             driver.navigate().back();
         } else {
-            UIActions.click(products.btn_AddToCart);
+            UIActions.click(products.getAddToCartButton());
             // Navigate back to store
             driver.navigate().back();
             driver.navigate().back();
@@ -138,26 +138,26 @@ public class Webflows extends CommonOps {
 
     @Step("business flow - checkout")
     public static void checkout(String firstName, String lastName,String companyName,String country,String streetName_HouseNumber,String apartment, String postCode, String city, String phone,String email,String orderNote) {
-        UIActions.updateText(checkoutPage.txt_first_name, firstName);
-        UIActions.updateText(checkoutPage.txt_last_name, lastName);
-        UIActions.updateText(checkoutPage.txt_company_name, companyName);
-        UIActions.click(checkoutPage.txt_Country);
-        UIActions.updateText(checkoutPage.txt_country_search, country);
-        UIActions.PressKey(checkoutPage.txt_country_search, Keys.ENTER);
-        UIActions.updateText(checkoutPage.txt_StreetName_HouseNumber, streetName_HouseNumber);
-        UIActions.updateText(checkoutPage.txt_Apartment, apartment);
-        UIActions.updateText(checkoutPage.txt_postcode, postCode);
-        UIActions.updateText(checkoutPage.txt_town_city, city);
-        UIActions.updateText(checkoutPage.txt_phone, phone);
-        UIActions.updateText(checkoutPage.txt_email, email);
-        UIActions.updateText(checkoutPage.txt_OrderNote, orderNote);
-        UIActions.click(checkoutPage.btn_placeOrder);
+        UIActions.updateText(checkoutPage.getFirstName(), firstName);
+        UIActions.updateText(checkoutPage.getLastName(), lastName);
+        UIActions.updateText(checkoutPage.getCompanyName(), companyName);
+        UIActions.click(checkoutPage.getCountry());
+        UIActions.updateText(checkoutPage.getCountrySearch(), country);
+        UIActions.PressKey(checkoutPage.getCountrySearch(), Keys.ENTER);
+        UIActions.updateText(checkoutPage.getStreetNameHouseNumber(), streetName_HouseNumber);
+        UIActions.updateText(checkoutPage.getApartment(), apartment);
+        UIActions.updateText(checkoutPage.getPostcode(), postCode);
+        UIActions.updateText(checkoutPage.getCity(), city);
+        UIActions.updateText(checkoutPage.getPhone(), phone);
+        UIActions.updateText(checkoutPage.getEmail(), email);
+        UIActions.updateText(checkoutPage.getOrderNote(), orderNote);
+        UIActions.click(checkoutPage.getPlaceOrderButton());
     }
 
     @Step("business flow - navigate to checkout page")
     public static void navigateCheckoutPage() throws Exception {
-        UIActions.mouseHoverWithoutClick(topMenu.btn_Cart_MenuContainer);
-        List<WebElement> cartEmptyIndicator = topMenu.cartEmptyIndicator;
+        UIActions.mouseHoverWithoutClick(topMenu.getCartMenuContainer());
+        List<WebElement> cartEmptyIndicator = topMenu.getCartEmptyIndicator();
 
         if (cartEmptyIndicator.size() > 0) {
             System.out.println("cart is empty");
@@ -166,17 +166,17 @@ public class Webflows extends CommonOps {
         else
         {
             // Navigate to checkout page
-            UIActions.mouseHover(topMenu.btn_Checkout);
+            UIActions.mouseHover(topMenu.getCheckoutButton());
         }
     }
 
     @Step("business flow - send message via contact us page to Atid store")
     public static void sendMessage(String name, String subject,String email,String message) {
-        UIActions.updateText(contactUsPage.txt_Name,name);
-        UIActions.updateText(contactUsPage.txt_Subject,subject);
-        UIActions.updateText(contactUsPage.txt_Email,email);
-        UIActions.updateText(contactUsPage.txt_Message,message);
-        UIActions.click(contactUsPage.btn_sendMessage);
+        UIActions.updateText(contactUsPage.getNameTextField(),name);
+        UIActions.updateText(contactUsPage.getSubjectTextField(),subject);
+        UIActions.updateText(contactUsPage.getEmailTextField(),email);
+        UIActions.updateText(contactUsPage.getMessageTextField(),message);
+        UIActions.click(contactUsPage.getSendMessageButton());
     }
 }
 

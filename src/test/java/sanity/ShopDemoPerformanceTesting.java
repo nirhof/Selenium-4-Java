@@ -4,7 +4,6 @@ import extensions.UIActions;
 import io.qameta.allure.Description;
 import org.openqa.selenium.devtools.v85.network.model.ConnectionType;
 import org.testng.annotations.AfterMethod;
-import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import utilities.CommonOps;
 import utilities.PerformanceMetric;
@@ -23,7 +22,7 @@ public class ShopDemoPerformanceTesting extends CommonOps {
         performanceHandler.enableMetric();
 
         // Click on the store button in the top menu
-        UIActions.click(topMenu.btn_Store);
+        UIActions.click(topMenu.getStoreButton());
 
         // Sort the products by price from lowest to highest
         Webflows.SortProductsByPriceLowToHigh();
@@ -32,7 +31,7 @@ public class ShopDemoPerformanceTesting extends CommonOps {
         Webflows.addProductAndReturnToStore(2);
 
         // go to cart page
-        UIActions.mouseHover(products.btn_CartMenu);
+        UIActions.mouseHover(products.getCartMenuButton());
 
         // Print performance metrics
         performanceHandler.getMetricList().forEach(metric -> System.out.println(metric.getName() + " " + metric.getValue()));
@@ -55,7 +54,7 @@ public class ShopDemoPerformanceTesting extends CommonOps {
         connectionHandler.emulateNetwork(100, 7500, 7500, ConnectionType.WIFI);
 
         // Click on the store button in the top menu
-        UIActions.click(topMenu.btn_Store);
+        UIActions.click(topMenu.getStoreButton());
 
         // Sort the products by price from lowest to highest
         Webflows.SortProductsByPriceLowToHigh();
@@ -69,7 +68,7 @@ public class ShopDemoPerformanceTesting extends CommonOps {
     }
     @AfterMethod
     public void afterMethod() {
-        Webflows.RemoveAllItem(cartPage.ProductRow); // Remove all the prodcuts from the cart after each test method execution
+        Webflows.RemoveAllItem(cartPage.getProductRows()); // Remove all the prodcuts from the cart after each test method execution
         driver.get(getData("url")); // Navigate back to the Atid Store URL after each test method execution
 
     }

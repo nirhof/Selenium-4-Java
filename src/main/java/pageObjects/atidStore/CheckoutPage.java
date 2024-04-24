@@ -8,58 +8,131 @@ import java.util.List;
 public class CheckoutPage {
 
     @FindBy(id = "billing_first_name")
-    public  WebElement txt_first_name;
+    private WebElement txt_first_name;
 
     @FindBy(id = "billing_last_name")
-    public  WebElement txt_last_name;
+    private WebElement txt_last_name;
 
     @FindBy(id = "billing_company")
-    public  WebElement txt_company_name;
+    private WebElement txt_company_name;
 
     @FindBy(id = "billing_postcode")
-    public  WebElement txt_postcode;
+    private WebElement txt_postcode;
 
     @FindBy(id = "billing_city")
-    public  WebElement txt_city;
+    private WebElement txt_city;
 
     @FindBy(id = "billing_phone")
-    public  WebElement txt_phone;
+    private WebElement txt_phone;
 
     @FindBy(id = "billing_email")
-    public  WebElement txt_email;
+    private WebElement txt_email;
 
     @FindBy(css = "input[id='billing_address_1']")
-    public  WebElement txt_StreetName_HouseNumber;
+    private WebElement txt_StreetName_HouseNumber;
 
     @FindBy(id = "billing_address_2")
-    public  WebElement txt_Apartment;
+    private WebElement txt_Apartment;
 
     @FindBy(id = "select2-billing_country-container")
-    public  WebElement txt_Country;
+    private WebElement txt_Country;
 
     @FindBy(id = "order_comments")
-    public  WebElement txt_OrderNote;
+    private WebElement txt_OrderNote;
 
     @FindBy(id = "place_order")
-    public  WebElement btn_placeOrder;
+    private WebElement btn_placeOrder;
 
     @FindBy(id = "billing_city")
-    public  WebElement txt_town_city;
+    private WebElement txt_town_city; // Note: duplicate identifier with txt_city, assuming this is intentional
 
     @FindBy(css = "ul[class='woocommerce-error']")
-    public  WebElement message_error;
+    private WebElement message_error;
 
     @FindBy(className = "select2-search__field")
-    public  WebElement txt_country_search;
+    private WebElement txt_country_search;
 
     @FindBy(css = "input[id='billing_state']")
-    public  WebElement txt_state;
+    private WebElement txt_state;
 
     @FindBy(css = "td[class='product-name']")
-    public  WebElement txt_productName;
+    private WebElement txt_productName;
 
-    @FindBy(css = " h1[class='elementor-heading-title elementor-size-default']")
-    public  WebElement title_Checkout;
+    @FindBy(css = "h1[class='elementor-heading-title elementor-size-default']")
+    private WebElement title_Checkout;
+
+    // Getters
+    public WebElement getFirstName() {
+        return txt_first_name;
+    }
+
+    public WebElement getLastName() {
+        return txt_last_name;
+    }
+
+    public WebElement getCompanyName() {
+        return txt_company_name;
+    }
+
+    public WebElement getPostcode() {
+        return txt_postcode;
+    }
+
+    public WebElement getCity() {
+        return txt_city;
+    }
+
+    public WebElement getPhone() {
+        return txt_phone;
+    }
+
+    public WebElement getEmail() {
+        return txt_email;
+    }
+
+    public WebElement getStreetNameHouseNumber() {
+        return txt_StreetName_HouseNumber;
+    }
+
+    public WebElement getApartment() {
+        return txt_Apartment;
+    }
+
+    public WebElement getCountry() {
+        return txt_Country;
+    }
+
+    public WebElement getOrderNote() {
+        return txt_OrderNote;
+    }
+
+    public WebElement getPlaceOrderButton() {
+        return btn_placeOrder;
+    }
+
+    public WebElement getTownCity() { // Seems redundant with getCity(), consider consolidating or renaming if different functionality is intended
+        return txt_town_city;
+    }
+
+    public WebElement getErrorMessage() {
+        return message_error;
+    }
+
+    public WebElement getCountrySearch() {
+        return txt_country_search;
+    }
+
+    public WebElement getState() {
+        return txt_state;
+    }
+
+    public WebElement getProductName() {
+        return txt_productName;
+    }
+
+    public WebElement getCheckoutTitle() {
+        return title_Checkout;
+    }
 
 
 }

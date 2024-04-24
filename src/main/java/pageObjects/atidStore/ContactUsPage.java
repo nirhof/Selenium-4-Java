@@ -8,33 +8,53 @@ import java.util.List;
 public class ContactUsPage {
 
     @FindBy(id = "wpforms-15-field_0")
-    public  WebElement txt_Name;
+    private  WebElement txt_Name;
 
     @FindBy(id = "wpforms-15-field_5")
-    public  WebElement txt_Subject;
+    private  WebElement txt_Subject;
 
     @FindBy(id = "wpforms-15-field_4")
-    public  WebElement txt_Email;
+    private  WebElement txt_Email;
 
     @FindBy(id = "wpforms-15-field_2")
-    public  WebElement txt_Message;
+    private  WebElement txt_Message;
 
     @FindBy(name = "wpforms[submit]")
-    public  WebElement btn_sendMessage;
+    private  WebElement btn_sendMessage;
 
     @FindBy(id = "wpforms-confirmation-15")
-    public  WebElement txt_confirmationSent;
+    private  WebElement txt_confirmationSent;
 
     @FindBy(css = "span[class='elementor-icon-list-text']")
-    public  List <WebElement> txt_AtidContactDetails;
+    private  List <WebElement> txt_AtidContactDetails;
 
+    // Getters
+    public WebElement getNameTextField() {
+        return txt_Name;
+    }
 
+    public WebElement getSubjectTextField() {
+        return txt_Subject;
+    }
 
+    public WebElement getEmailTextField() {
+        return txt_Email;
+    }
 
+    public WebElement getMessageTextField() {
+        return txt_Message;
+    }
 
+    public WebElement getSendMessageButton() {
+        return btn_sendMessage;
+    }
 
+    public WebElement getConfirmationSentText() {
+        return txt_confirmationSent;
+    }
 
-
-
+    public List<WebElement> getAtidContactDetailsText() {
+        return txt_AtidContactDetails;
+    }
 
 }

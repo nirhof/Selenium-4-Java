@@ -181,7 +181,7 @@
                   <span class="method-name">test03_verifyAboutAtidText</span>
                   <div class="stack-trace">java.lang.AssertionError: expected [ATID Demo Store was created by ATID College dedicated employees. This is a complete demo site for practicing QA &amp; Test Automation methodologies. Don&apos;t think for a second you can actually buy here something cause you can&apos;t ! This Demo Store contains software bugs which were put intentionally and your job is to locate them Good luck folks, Yoni Flenner - ATID College] but found [ATID Demo Store was created by ATID College dedicated employees. This is a complete demo site for practicing QA &amp; Test Automation methodologies. Don&apos;t think for a second you can actually buy here something cause you can&apos;t ! This Demo Store contains software bugs which were put intentionally and your job is to locate them Good luck falks, Yoni Flenner - ATID College]
 	at extensions.Verifications.verifyTextInElement(Verifications.java:31)
-	at sanity.ShopDemo.test03_verifyAboutAtidText(ShopDemo.java:44)
+	at sanity.ShopDemo.test03_verifyAboutAtidText(ShopDemo.java:40)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
 ... Removed 37 stack frames
 </div> <!-- stack-trace -->
@@ -196,7 +196,7 @@
                   <span class="method-name">test05_verifyHighestProductPrice</span>
                   <div class="stack-trace">java.lang.AssertionError: expected [true] but found [false]
 	at extensions.Verifications.verifyTextContainedInElement(Verifications.java:110)
-	at sanity.ShopDemo.test05_verifyHighestProductPrice(ShopDemo.java:64)
+	at sanity.ShopDemo.test05_verifyHighestProductPrice(ShopDemo.java:58)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
 ... Removed 35 stack frames
 </div> <!-- stack-trace -->
@@ -339,46 +339,46 @@ data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
 data.addRows(9);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'test01_verifySearchForSpecificProduct')
+data.setCell(0, 1, 'test02_SearchForKeywordAndVerifyProductsCount')
 data.setCell(0, 2, 'sanity.ShopDemo')
-data.setCell(0, 3, 9773);
+data.setCell(0, 3, 12326);
 data.setCell(1, 0, 1)
-data.setCell(1, 1, 'test06_verifyDetailsOfProductAddedToCart')
+data.setCell(1, 1, 'test01_verifySearchForSpecificProduct')
 data.setCell(1, 2, 'sanity.ShopDemo')
-data.setCell(1, 3, 7666);
+data.setCell(1, 3, 8948);
 data.setCell(2, 0, 2)
-data.setCell(2, 1, 'test04_verifyProductImage')
+data.setCell(2, 1, 'test06_verifyDetailsOfProductAddedToCart')
 data.setCell(2, 2, 'sanity.ShopDemo')
-data.setCell(2, 3, 4003);
+data.setCell(2, 3, 7593);
 data.setCell(3, 0, 3)
-data.setCell(3, 1, 'test01_verifySearchForSpecificProduct')
+data.setCell(3, 1, 'test04_verifyProductImage')
 data.setCell(3, 2, 'sanity.ShopDemo')
-data.setCell(3, 3, 3672);
+data.setCell(3, 3, 5623);
 data.setCell(4, 0, 4)
-data.setCell(4, 1, 'test02_SearchForKeywordAndVerifyProductsCount')
+data.setCell(4, 1, 'test01_verifySearchForSpecificProduct')
 data.setCell(4, 2, 'sanity.ShopDemo')
-data.setCell(4, 3, 3194);
+data.setCell(4, 3, 5034);
 data.setCell(5, 0, 5)
-data.setCell(5, 1, 'test02_SearchForKeywordAndVerifyProductsCount')
+data.setCell(5, 1, 'test05_verifyHighestProductPrice')
 data.setCell(5, 2, 'sanity.ShopDemo')
-data.setCell(5, 3, 2827);
+data.setCell(5, 3, 3447);
 data.setCell(6, 0, 6)
-data.setCell(6, 1, 'test05_verifyHighestProductPrice')
+data.setCell(6, 1, 'test02_SearchForKeywordAndVerifyProductsCount')
 data.setCell(6, 2, 'sanity.ShopDemo')
-data.setCell(6, 3, 2428);
+data.setCell(6, 3, 3065);
 data.setCell(7, 0, 7)
 data.setCell(7, 1, 'test07_verifySearchProductsElementLocation')
 data.setCell(7, 2, 'sanity.ShopDemo')
-data.setCell(7, 3, 1508);
+data.setCell(7, 3, 1490);
 data.setCell(8, 0, 8)
 data.setCell(8, 1, 'test03_verifyAboutAtidText')
 data.setCell(8, 2, 'sanity.ShopDemo')
-data.setCell(8, 3, 1312);
+data.setCell(8, 3, 1346);
 window.suiteTableData['Web_Suite']= { tableData: data, tableDiv: 'times-div-Web_Suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 36 seconds</span>
+              <span class="suite-total-time">Total running time: 48 seconds</span>
               <div id="times-div-Web_Suite">
               </div> <!-- times-div-Web_Suite -->
             </div> <!-- times-div -->
@@ -411,119 +411,119 @@ return data;
               </div> <!-- configuration-class before -->
               <div class="configuration-method before">
                 <span class="method-name">beforeMethod(public void sanity.ShopDemo.test01_verifySearchForSpecificProduct(java.lang.String,java.lang.String))</span>
-                <span class="method-start">29948 ms</span>
+                <span class="method-start">25210 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">test01_verifySearchForSpecificProduct(Anchor Bracelet, Anchor Bracelet)</span>
-                <span class="method-start">30605 ms</span>
+                <span class="method-start">25786 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">afterMethod</span>
-                <span class="method-start">40510 ms</span>
+                <span class="method-start">31102 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">beforeMethod(public void sanity.ShopDemo.test01_verifySearchForSpecificProduct(java.lang.String,java.lang.String))</span>
-                <span class="method-start">40664 ms</span>
+                <span class="method-start">31216 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">test01_verifySearchForSpecificProduct(ATID Yellow Shoes, ATID Yellow Shoes)</span>
-                <span class="method-start">41083 ms</span>
+                <span class="method-start">31354 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">afterMethod</span>
-                <span class="method-start">44858 ms</span>
+                <span class="method-start">40677 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">beforeMethod(public void sanity.ShopDemo.test02_SearchForKeywordAndVerifyProductsCount(java.lang.String,java.lang...)</span>
-                <span class="method-start">45473 ms</span>
+                <span class="method-start">41749 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">test02_SearchForKeywordAndVerifyProductsCount(shoes, 5)</span>
-                <span class="method-start">46215 ms</span>
+                <span class="method-start">42010 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">afterMethod</span>
-                <span class="method-start">49486 ms</span>
+                <span class="method-start">54448 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">beforeMethod(public void sanity.ShopDemo.test02_SearchForKeywordAndVerifyProductsCount(java.lang.String,java.lang...)</span>
-                <span class="method-start">50130 ms</span>
+                <span class="method-start">54977 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">test02_SearchForKeywordAndVerifyProductsCount(jeans, 7)</span>
-                <span class="method-start">50155 ms</span>
+                <span class="method-start">54998 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">afterMethod</span>
-                <span class="method-start">53075 ms</span>
+                <span class="method-start">58159 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">beforeMethod(public void sanity.ShopDemo.test03_verifyAboutAtidText())</span>
-                <span class="method-start">53618 ms</span>
+                <span class="method-start">58646 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <img src="failed.png">
                 </img>
                 <span class="method-name">test03_verifyAboutAtidText</span>
-                <span class="method-start">53640 ms</span>
+                <span class="method-start">58674 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">afterMethod</span>
-                <span class="method-start">55810 ms</span>
+                <span class="method-start">60843 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">beforeMethod(public void sanity.ShopDemo.test04_verifyProductImage())</span>
-                <span class="method-start">56348 ms</span>
+                <span class="method-start">61463 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">test04_verifyProductImage</span>
-                <span class="method-start">56380 ms</span>
+                <span class="method-start">61479 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">afterMethod</span>
-                <span class="method-start">60485 ms</span>
+                <span class="method-start">67191 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">beforeMethod(public void sanity.ShopDemo.test05_verifyHighestProductPrice())</span>
-                <span class="method-start">61296 ms</span>
+                <span class="method-start">67889 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <img src="failed.png">
                 </img>
                 <span class="method-name">test05_verifyHighestProductPrice</span>
-                <span class="method-start">61336 ms</span>
+                <span class="method-start">67928 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">afterMethod</span>
-                <span class="method-start">64090 ms</span>
+                <span class="method-start">71732 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">beforeMethod(public void sanity.ShopDemo.test06_verifyDetailsOfProductAddedToCart() throws java.lang.Exception)</span>
-                <span class="method-start">64733 ms</span>
+                <span class="method-start">72300 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">test06_verifyDetailsOfProductAddedToCart</span>
-                <span class="method-start">64767 ms</span>
+                <span class="method-start">72321 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">afterMethod</span>
-                <span class="method-start">72605 ms</span>
+                <span class="method-start">80003 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">beforeMethod(public void sanity.ShopDemo.test07_verifySearchProductsElementLocation())</span>
-                <span class="method-start">73347 ms</span>
+                <span class="method-start">80575 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">test07_verifySearchProductsElementLocation</span>
-                <span class="method-start">73367 ms</span>
+                <span class="method-start">80601 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">afterMethod</span>
-                <span class="method-start">75113 ms</span>
+                <span class="method-start">82229 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-class after">
                 <span class="method-name">closeSession</span>
-                <span class="method-start">77076 ms</span>
+                <span class="method-start">82738 ms</span>
               </div> <!-- configuration-class after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
