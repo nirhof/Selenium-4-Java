@@ -3,6 +3,7 @@
 <suite name="Web Suite" parallel="false">
     <listeners>
         <listener class-name="utilities.Listeners"></listener>
+        <listener class-name="utilities.AnnotationTransformer"></listener>
     </listeners>
     <test name="Web Tests">
         <parameter name="PlatformName" value="web"></parameter>
@@ -13,15 +14,14 @@
 <!--                </methods>-->
 <!--            </class>-->
 
-<!--            <class name="sanity.ShopDemo"/>-->
+            <class name="sanity.ShopDemo"/>
 <!--            <class name="sanity.ShopDemoAddProductTest"/>-->
 <!--            <class name="sanity.ShopDemoRemoveAllProductsTest"/>-->
 <!--            <class name="sanity.ShopDemoRemoveProductsTest"/>-->
 <!--            <class name="sanity.ShopDemoPerformanceTesting"/>-->
 <!--            <class name="sanity.ShopDemoAddOutOfStockProduct"/>-->
 <!--            <class name="sanity.ShopDemoContactUs"/>-->
-            <class name="sanity.ShopDemoCheckout"/>
-
+<!--            <class name="sanity.ShopDemoCheckout"/>-->
 
         </classes>
 

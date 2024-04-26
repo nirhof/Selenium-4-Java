@@ -7,6 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 import utilities.CommonOps;
+import utilities.RetryAnalyzer;
 import workflows.Webflows;
 import java.util.Arrays;
 import java.util.List;
@@ -119,7 +120,6 @@ public class ShopDemo extends CommonOps {
     @AfterMethod
     public void afterMethod() {
         driver.get(getData("url")); // Navigate back to the Atid Store URL after each test method execution
-
     }
 
 }
